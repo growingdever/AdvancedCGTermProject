@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E643DEB01A35FFCA002EFE58 /* main.cpp */; };
+		E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB71A35FFF7002EFE58 /* GLUT.framework */; };
+		E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB81A35FFF7002EFE58 /* OpenGL.framework */; };
+		E643DEBC1A360000002EFE58 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBB1A360000002EFE58 /* libIL.dylib */; };
+		E643DEBE1A360003002EFE58 /* libILU.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBD1A360003002EFE58 /* libILU.dylib */; };
+		E643DEC01A360008002EFE58 /* libILUT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBF1A360008002EFE58 /* libILUT.dylib */; };
+		E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */; };
+		E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC31A360048002EFE58 /* libassimp.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		E643DEAD1A35FFCA002EFE58 /* AdvancedCGTermProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdvancedCGTermProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		E643DEB01A35FFCA002EFE58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E643DEB71A35FFF7002EFE58 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		E643DEB81A35FFF7002EFE58 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		E643DEBB1A360000002EFE58 /* libIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIL.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libIL.dylib; sourceTree = "<group>"; };
+		E643DEBD1A360003002EFE58 /* libILU.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libILU.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libILU.dylib; sourceTree = "<group>"; };
+		E643DEBF1A360008002EFE58 /* libILUT.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libILUT.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libILUT.dylib; sourceTree = "<group>"; };
+		E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.dylib; path = ../../../../../usr/local/Cellar/glew/1.11.0/lib/libGLEW.1.11.dylib; sourceTree = "<group>"; };
+		E643DEC31A360048002EFE58 /* libassimp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.dylib; path = ../../../../../usr/local/Cellar/assimp/3.1.1/lib/libassimp.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */,
+				E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */,
+				E643DEBC1A360000002EFE58 /* libIL.dylib in Frameworks */,
+				E643DEBE1A360003002EFE58 /* libILU.dylib in Frameworks */,
+				E643DEC01A360008002EFE58 /* libILUT.dylib in Frameworks */,
+				E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */,
+				E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +62,13 @@
 		E643DEA41A35FFCA002EFE58 = {
 			isa = PBXGroup;
 			children = (
+				E643DEC31A360048002EFE58 /* libassimp.dylib */,
+				E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */,
+				E643DEBF1A360008002EFE58 /* libILUT.dylib */,
+				E643DEBD1A360003002EFE58 /* libILU.dylib */,
+				E643DEBB1A360000002EFE58 /* libIL.dylib */,
+				E643DEB71A35FFF7002EFE58 /* GLUT.framework */,
+				E643DEB81A35FFF7002EFE58 /* OpenGL.framework */,
 				E643DEAF1A35FFCA002EFE58 /* AdvancedCGTermProject */,
 				E643DEAE1A35FFCA002EFE58 /* Products */,
 			);
@@ -158,6 +186,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/devil/1.7.8_1/include,
+					/usr/local/Cellar/assimp/3.1.1/include,
+					/usr/local/Cellar/glew/1.11.0/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -193,6 +228,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/devil/1.7.8_1/include,
+					/usr/local/Cellar/assimp/3.1.1/include,
+					/usr/local/Cellar/glew/1.11.0/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -202,6 +244,12 @@
 		E643DEB51A35FFCA002EFE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/devil/1.7.8_1/lib,
+					/usr/local/Cellar/glew/1.11.0/lib,
+					/usr/local/Cellar/assimp/3.1.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +257,12 @@
 		E643DEB61A35FFCA002EFE58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/devil/1.7.8_1/lib,
+					/usr/local/Cellar/glew/1.11.0/lib,
+					/usr/local/Cellar/assimp/3.1.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
