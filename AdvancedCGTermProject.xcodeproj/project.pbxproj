@@ -244,6 +244,14 @@
 		E643DEB51A35FFCA002EFE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/devil/1.7.8_1/include,
+					/usr/local/Cellar/assimp/3.1.1/include,
+					/usr/local/Cellar/glew/1.11.0/include,
+					/usr/local/Cellar/glm/0.9.5.4/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/devil/1.7.8_1/lib,
@@ -257,6 +265,14 @@
 		E643DEB61A35FFCA002EFE58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/devil/1.7.8_1/include,
+					/usr/local/Cellar/assimp/3.1.1/include,
+					/usr/local/Cellar/glew/1.11.0/include,
+					/usr/local/Cellar/glm/0.9.5.4/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/devil/1.7.8_1/lib,
@@ -286,6 +302,7 @@
 				E643DEB61A35FFCA002EFE58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
