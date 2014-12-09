@@ -36,6 +36,26 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     player.KeyEvent(key, scancode, action, mods);
 }
 
+GLFWwindow* Init() {
+    glfwSetErrorCallback(error_callback);
+    if (!glfwInit()) {
+        return NULL;
+    }
+    
+    GLFWwindow *window = glfwCreateWindow(800, 600, "Simple example", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        return NULL;
+    }
+    
+    glfwMakeContextCurrent(window);
+    glfwSetKeyCallback(window, key_callback);
+    
+    player.Init(window);
+    
+    return window;
+}
+
 void Projection(GLFWwindow *window) {
     float ratio;
     int width, height;
@@ -78,22 +98,11 @@ void Draw() {
 
 int main(void)
 {
-    GLFWwindow *window;
-    glfwSetErrorCallback(error_callback);
-    if (!glfwInit()) {
-        exit(EXIT_FAILURE);
+    GLFWwindow *window = Init();
+    if( ! window ) {
+        cerr << "Failed to init" << endl;
+        return 0;
     }
-    
-    window = glfwCreateWindow(800, 600, "Simple example", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        exit(EXIT_FAILURE);
-    }
-    
-    glfwMakeContextCurrent(window);
-    glfwSetKeyCallback(window, key_callback);
-    
-    player.Init(window);
     
     while (!glfwWindowShouldClose(window)) {
         Projection(window);
