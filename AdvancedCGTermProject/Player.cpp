@@ -39,18 +39,16 @@ void Player::Init(GLFWwindow *window)
     if( ! _light.Init() ) {
         // error!
     }
-    _light.SetEnabled(true);
-    _light.SetAmbient(0.3f, 0.3f, 0.3f);
-    _light.SetDiffuse(0.2f, 0.2f, 0.2f);
-    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 1.5f);
+    _light.SetPosition(glm::vec3(0, 0, 50));
+    _light.SetAmbient(0.1f, 0.1f, 0.1f);
+    _light.SetDiffuse(1.0f, 1.0f, 1.0f);
+    _light.SetAttenuation(GL_CONSTANT_ATTENUATION, 0.0f);
+    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 0.01f);
+    _light.SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.001f);
 }
 
 void Player::Update(float dt)
 {
-    _camera.Update();
-    _position = _camera.camera_position;
-    _light.SetPosition(_position);
-    
     if( glfwGetKey(_window, GLFW_KEY_A) == GLFW_PRESS ) {
         _camera.Move(LEFT);
     }
@@ -75,6 +73,9 @@ void Player::Update(float dt)
     if( glfwGetKey(_window, GLFW_KEY_DOWN) == GLFW_PRESS ) {
         _camera.ChangePitch( _camera.camera_pitch - 0.05f );
     }
+    
+    SetPosition(_camera.camera_position);
+    _light.SetPosition(_camera.camera_position);
 }
 
 void Player::Draw()
@@ -92,5 +93,5 @@ void Player::KeyEvent(int key, int scancode, int action, int mods)
 void Player::Fire()
 {
     
-    ProjectileManager::GetInstance()->CreateBullet(_camera.camera_position + _camera.camera_direction * 0.2f, _camera.camera_direction);
+    ProjectileManager::GetInstance()->CreateBullet(_position + _camera.camera_direction * 0.2f, _camera.camera_direction);
 }

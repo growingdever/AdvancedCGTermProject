@@ -20,10 +20,11 @@ using namespace std;
 
 Camera camera;
 Player player(camera);
-Cube cube(10.0f);
+Cube cube(10.0f), cube2(10.0f);
 double currentFrame;
 double deltaTime;
 double lastFrame;
+double delta = 50;
 
 
 static void error_callback(int error, const char* description)
@@ -63,24 +64,12 @@ GLFWwindow* Init() {
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
-    
-    GLuint fogFilter = GL_EXP2;
-    GLfloat fogSize = 1000.0f;
-    GLfloat fogColor[4]= {0.1f, 0.1f, 0.1f, 1.0f};
-    GLfloat fogDensity = 0.023;
-    glEnable(GL_FOG);
-    glFogi(GL_FOG_MODE, fogFilter);
-    glFogfv(GL_FOG_COLOR, fogColor);
-    glFogf(GL_FOG_DENSITY, fogDensity);
-    glHint(GL_FOG_HINT, GL_DONT_CARE);
-    glFogf(GL_FOG_START, -fogSize);
-    glFogf(GL_FOG_END, fogSize);
 
-    
     
     player.Init(window);
     camera.SetPosition(glm::vec3(0, 10, -10));
     cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
+    cube2.SetColor(glm::vec3(0.0f, 0.0f, 1.0f));
     
     return window;
 }
@@ -91,51 +80,88 @@ void Projection(GLFWwindow *window) {
     glfwGetFramebufferSize(window, &width, &height);
     ratio = width / (float) height;
     camera.SetViewport(0, 0, width, height);
+    camera.Update();
 }
 
 void Update(float dt) {
     player.Update(dt);
     ProjectileManager::GetInstance()->Update(dt);
+    
+    delta -= dt * 10;
 }
 
 void Draw() {
     glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
     
     glPushMatrix();
-    glScalef(10.0f, 10.0f, 10.0f);
-    glTranslatef(0, 0, -20);
-    glBegin(GL_TRIANGLES);
-    glColor3f(1.f, 0.f, 0.f);
-    glVertex3f(-0.6f, -0.4f, 0.f);
-    glColor3f(0.f, 1.f, 0.f);
-    glVertex3f(0.6f, -0.4f, 0.f);
-    glColor3f(0.f, 0.f, 1.f);
-    glVertex3f(0.f, 0.6f, 0.f);
-    glEnd();
+    player.Draw();
     glPopMatrix();
     
-    glLoadIdentity();
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glBegin(GL_QUADS);
+    glPushMatrix();
     {
+        glTranslatef(0, 1.0f, 0);
+        glLineWidth(5.0f);
+        glBegin(GL_LINES);
+        // x-axis
+        glColor3f(1.0, 0.0, 0.0);
+        glVertex3f(-100, 0, 0);
+        glColor3f(1.0, 0.0, 0.0);
+        glVertex3f(100, 0, 0);
+        // y-axis
+        glColor3f(0.0, 1.0, 0.0);
+        glVertex3f(0, -100, 0);
+        glColor3f(0.0, 1.0, 0.0);
+        glVertex3f(0, 100, 0);
+        // z-axis
+        glColor3f(0.0, 0.0, 1.0);
+        glVertex3f(0, 0, -100);
+        glColor3f(0.0, 0.0, 1.0);
+        glVertex3f(0, 0, 100);
+        glEnd();
+    }
+    glPopMatrix();
+    
+    
+    glPushMatrix();
+    {
+        glScalef(10.0f, 10.0f, 10.0f);
+        glBegin(GL_TRIANGLES);
+        glColor3f(1.f, 0.f, 0.f);
+        glVertex3f(-0.6f, -0.4f, 0.f);
+        glColor3f(0.f, 1.f, 0.f);
+        glVertex3f(0.6f, -0.4f, 0.f);
+        glColor3f(0.f, 0.f, 1.f);
+        glVertex3f(0.f, 0.6f, 0.f);
+        glEnd();
+    }
+    glPopMatrix();
+    
+    glPushMatrix();
+    {
+        glLoadIdentity();
+        glBegin(GL_QUADS);
+        glColor3f(1.0f, 1.0f, 1.0f);
         glVertex3f(-1000.0f, 0.0f, -1000.0f);
         glVertex3f(1000.0f, 0.0f, -1000.0f);
         glVertex3f(1000.0f, 0.0f, 1000.0f);
         glVertex3f(-1000.0f, 0.0f, 1000.0f);
+        glEnd();
     }
-    glEnd();
+    glPopMatrix();
     
-    glTranslatef(0, 0, 50);
+    glPushMatrix();
+    glTranslatef(50, 0, delta);
     cube.Draw();
+    glTranslatef(0, 0, 50);
+    cube2.Draw();
+    glPopMatrix();
     
     glPushMatrix();
     ProjectileManager::GetInstance()->Draw();
     glPopMatrix();
-    
-    player.Draw();
 }
 
 
@@ -152,8 +178,8 @@ int main(void)
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
         
-        Projection(window);
         Update(deltaTime);
+        Projection(window);
         Draw();
         
         glfwSwapBuffers(window);

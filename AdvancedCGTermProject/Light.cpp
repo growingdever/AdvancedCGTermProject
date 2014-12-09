@@ -24,6 +24,7 @@ bool Light::Init()
     glLightfv(LightID, GL_AMBIENT, LightAmbient);
     glLightfv(LightID, GL_DIFFUSE, LightDiffuse);
     glLightfv(LightID, GL_SPECULAR, LightSpecular);
+    glLightfv(LightID, GL_POSITION, LightPosition);
     SetAttenuation(GL_CONSTANT_ATTENUATION, 2.0);
     SetAttenuation(GL_LINEAR_ATTENUATION, 1.0);
     SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.5);
