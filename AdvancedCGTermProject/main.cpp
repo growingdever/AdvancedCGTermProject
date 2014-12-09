@@ -55,6 +55,8 @@ GLFWwindow* Init() {
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     
+    glEnable(GL_DEPTH_TEST);
+    
     player.Init(window);
     
     cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
@@ -78,7 +80,7 @@ void Update(float dt) {
 void Draw() {
     glMatrixMode(GL_MODELVIEW);
     
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     glBegin(GL_TRIANGLES);
     glColor3f(1.f, 0.f, 0.f);
