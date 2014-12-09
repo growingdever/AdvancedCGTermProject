@@ -16,6 +16,9 @@
 		E64AD0101A36D5B70012B7F2 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBB1A360000002EFE58 /* libIL.dylib */; };
 		E64AD0111A36D5B70012B7F2 /* libILU.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBD1A360003002EFE58 /* libILU.dylib */; };
 		E64AD0121A36D5B70012B7F2 /* libILUT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBF1A360008002EFE58 /* libILUT.dylib */; };
+		E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0131A36FA830012B7F2 /* ProjectileManager.cpp */; };
+		E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0161A36FC280012B7F2 /* Bullet.cpp */; };
+		E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0191A36FC650012B7F2 /* Node.cpp */; };
 		E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A398AE1A367326004FF749 /* libglfw3.3.dylib */; };
 		E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6A398B01A3678DA004FF749 /* Camera.cpp */; };
 		E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0EC41A36A16F0005FF7A /* Cube.cpp */; };
@@ -45,6 +48,12 @@
 		E643DEC31A360048002EFE58 /* libassimp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.dylib; path = ../../../../../usr/local/Cellar/assimp/3.1.1/lib/libassimp.dylib; sourceTree = "<group>"; };
 		E64AD00D1A36CD470012B7F2 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		E64AD00E1A36CD470012B7F2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		E64AD0131A36FA830012B7F2 /* ProjectileManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileManager.cpp; sourceTree = "<group>"; };
+		E64AD0141A36FA830012B7F2 /* ProjectileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileManager.h; sourceTree = "<group>"; };
+		E64AD0161A36FC280012B7F2 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		E64AD0171A36FC280012B7F2 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		E64AD0191A36FC650012B7F2 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		E64AD01A1A36FC650012B7F2 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		E6A398AE1A367326004FF749 /* libglfw3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.0.4/lib/libglfw3.3.dylib; sourceTree = "<group>"; };
 		E6A398B01A3678DA004FF749 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		E6A398B11A3678DA004FF749 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -105,6 +114,12 @@
 				E6CF0EC51A36A16F0005FF7A /* Cube.h */,
 				E64AD00D1A36CD470012B7F2 /* Player.cpp */,
 				E64AD00E1A36CD470012B7F2 /* Player.h */,
+				E64AD0131A36FA830012B7F2 /* ProjectileManager.cpp */,
+				E64AD0141A36FA830012B7F2 /* ProjectileManager.h */,
+				E64AD0161A36FC280012B7F2 /* Bullet.cpp */,
+				E64AD0171A36FC280012B7F2 /* Bullet.h */,
+				E64AD0191A36FC650012B7F2 /* Node.cpp */,
+				E64AD01A1A36FC650012B7F2 /* Node.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -166,6 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */,
+				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
+				E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */,
+				E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */,
 				E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */,
 				E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */,
 				E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */,
@@ -266,6 +284,7 @@
 		E643DEB51A35FFCA002EFE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -289,6 +308,7 @@
 		E643DEB61A35FFCA002EFE58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

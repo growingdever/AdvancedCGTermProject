@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Camera.h"
 #include "Cube.h"
+#include "ProjectileManager.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ GLFWwindow* Init() {
         return NULL;
     }
     
-    GLFWwindow *window = glfwCreateWindow(800, 600, "Simple example", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(800, 600, "Struggle Cube", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return NULL;
@@ -55,6 +56,8 @@ GLFWwindow* Init() {
     glfwSetKeyCallback(window, key_callback);
     
     player.Init(window);
+    
+    cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
     
     return window;
 }
@@ -69,6 +72,7 @@ void Projection(GLFWwindow *window) {
 
 void Update(float dt) {
     player.Update(dt);
+    ProjectileManager::GetInstance()->Update(dt);
 }
 
 void Draw() {
@@ -96,6 +100,10 @@ void Draw() {
     glEnd();
     
     cube.Draw();
+    
+    glPushMatrix();
+    ProjectileManager::GetInstance()->Draw();
+    glPopMatrix();
 }
 
 
