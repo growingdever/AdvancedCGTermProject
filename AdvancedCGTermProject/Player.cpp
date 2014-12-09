@@ -7,6 +7,7 @@
 //
 
 #include "Player.h"
+#include "ProjectileManager.h"
 
 
 Player::Player(Camera &camera)
@@ -64,5 +65,13 @@ void Player::Update(float dt)
 
 void Player::KeyEvent(int key, int scancode, int action, int mods)
 {
+    if( key == GLFW_KEY_SPACE && action == GLFW_RELEASE ) {
+        Fire();
+    }
+}
+
+void Player::Fire()
+{
     
+    ProjectileManager::GetInstance()->CreateBullet(_camera.camera_position + _camera.camera_direction * 0.2f, _camera.camera_direction);
 }

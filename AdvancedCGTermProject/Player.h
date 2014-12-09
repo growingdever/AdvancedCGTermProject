@@ -28,6 +28,7 @@ public:
     void Update(float dt);
     void KeyEvent(int key, int scancode, int action, int mods);
     
+    void Fire();
     
 };
 
