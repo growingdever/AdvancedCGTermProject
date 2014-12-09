@@ -20,6 +20,9 @@ using namespace std;
 Camera camera;
 Player player(camera);
 Cube cube(1.0f);
+double currentFrame;
+double deltaTime;
+double lastFrame;
 
 
 static void error_callback(int error, const char* description)
@@ -64,8 +67,8 @@ void Projection(GLFWwindow *window) {
     camera.SetViewport(0, 0, width, height);
 }
 
-void Update(GLFWwindow *window) {
-    player.Update();
+void Update(float dt) {
+    player.Update(dt);
 }
 
 void Draw() {
@@ -105,9 +108,12 @@ int main(void)
     }
     
     while (!glfwWindowShouldClose(window)) {
-        Projection(window);
+        currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
         
-        Update(window);
+        Projection(window);
+        Update(deltaTime);
         Draw();
         
         glfwSwapBuffers(window);

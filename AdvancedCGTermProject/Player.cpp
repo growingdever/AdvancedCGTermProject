@@ -32,7 +32,7 @@ void Player::Init(GLFWwindow *window)
     _camera.SetMovingScale(0.01f);
 }
 
-void Player::Update()
+void Player::Update(float dt)
 {
     _camera.Update();
     
