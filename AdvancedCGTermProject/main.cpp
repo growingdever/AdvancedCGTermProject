@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "Cube.h"
 #include "ProjectileManager.h"
+#include "ItemManager.h"
 
 using namespace std;
 
@@ -86,6 +87,7 @@ void Projection(GLFWwindow *window) {
 void Update(float dt) {
     player.Update(dt);
     ProjectileManager::GetInstance()->Update(dt);
+    ItemManager::GetInstance()->Update(dt);
     
     delta -= dt * 10;
 }
@@ -159,9 +161,9 @@ void Draw() {
     cube2.Draw();
     glPopMatrix();
     
-    glPushMatrix();
+
     ProjectileManager::GetInstance()->Draw();
-    glPopMatrix();
+    ItemManager::GetInstance()->Draw();
 }
 
 

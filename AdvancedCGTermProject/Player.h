@@ -23,6 +23,8 @@ private:
     
     Light _light;
     
+    int _remainBullet;
+    
     
 public:
     Player(Camera &camera);
@@ -34,6 +36,8 @@ public:
     void KeyEvent(int key, int scancode, int action, int mods);
     
     void Fire();
+    void Looting();
+    void IncreaseBullet(int count);
     
 };
 

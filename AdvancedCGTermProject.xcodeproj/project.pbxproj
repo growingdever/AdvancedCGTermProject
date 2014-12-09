@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6155C4A1A3778AF00B9734C /* ItemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C481A3778AF00B9734C /* ItemManager.cpp */; };
+		E6155C4D1A3779A800B9734C /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C4B1A3779A800B9734C /* Item.cpp */; };
+		E6155C501A377A7D00B9734C /* ItemBullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C4E1A377A7D00B9734C /* ItemBullet.cpp */; };
+		E6155C531A3780AF00B9734C /* Macro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C521A3780AF00B9734C /* Macro.cpp */; };
 		E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E643DEB01A35FFCA002EFE58 /* main.cpp */; };
 		E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB71A35FFF7002EFE58 /* GLUT.framework */; };
 		E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB81A35FFF7002EFE58 /* OpenGL.framework */; };
@@ -38,6 +42,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E6155C481A3778AF00B9734C /* ItemManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemManager.cpp; sourceTree = "<group>"; };
+		E6155C491A3778AF00B9734C /* ItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemManager.h; sourceTree = "<group>"; };
+		E6155C4B1A3779A800B9734C /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		E6155C4C1A3779A800B9734C /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E6155C4E1A377A7D00B9734C /* ItemBullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemBullet.cpp; sourceTree = "<group>"; };
+		E6155C4F1A377A7D00B9734C /* ItemBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBullet.h; sourceTree = "<group>"; };
+		E6155C511A37809800B9734C /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		E6155C521A3780AF00B9734C /* Macro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Macro.cpp; sourceTree = "<group>"; };
 		E643DEAD1A35FFCA002EFE58 /* AdvancedCGTermProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdvancedCGTermProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		E643DEB01A35FFCA002EFE58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E643DEB71A35FFF7002EFE58 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -125,6 +137,14 @@
 				E64AD01A1A36FC650012B7F2 /* Node.h */,
 				E64DD25A1A371C71007A82EF /* Light.cpp */,
 				E64DD25B1A371C71007A82EF /* Light.h */,
+				E6155C481A3778AF00B9734C /* ItemManager.cpp */,
+				E6155C491A3778AF00B9734C /* ItemManager.h */,
+				E6155C4B1A3779A800B9734C /* Item.cpp */,
+				E6155C4C1A3779A800B9734C /* Item.h */,
+				E6155C4E1A377A7D00B9734C /* ItemBullet.cpp */,
+				E6155C4F1A377A7D00B9734C /* ItemBullet.h */,
+				E6155C511A37809800B9734C /* Macro.h */,
+				E6155C521A3780AF00B9734C /* Macro.cpp */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -189,7 +209,11 @@
 				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
 				E64DD25C1A371C71007A82EF /* Light.cpp in Sources */,
 				E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */,
+				E6155C531A3780AF00B9734C /* Macro.cpp in Sources */,
+				E6155C501A377A7D00B9734C /* ItemBullet.cpp in Sources */,
+				E6155C4D1A3779A800B9734C /* Item.cpp in Sources */,
 				E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */,
+				E6155C4A1A3778AF00B9734C /* ItemManager.cpp in Sources */,
 				E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */,
 				E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */,
 				E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */,

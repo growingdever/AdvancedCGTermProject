@@ -8,6 +8,7 @@
 
 #include "Player.h"
 #include "ProjectileManager.h"
+#include "ItemManager.h"
 
 #include <iostream>
 using namespace std;
@@ -88,10 +89,35 @@ void Player::KeyEvent(int key, int scancode, int action, int mods)
     if( key == GLFW_KEY_SPACE && action == GLFW_RELEASE ) {
         Fire();
     }
+    
+    if( key == GLFW_KEY_G && action == GLFW_RELEASE ) {
+        Looting();
+    }
 }
 
 void Player::Fire()
 {
+    if( _remainBullet <= 0 ) {
+        return;
+    }
     
+    _remainBullet--;
     ProjectileManager::GetInstance()->CreateBullet(_position + _camera.camera_direction * 0.2f, _camera.camera_direction);
+}
+
+void Player::Looting()
+{
+    Item *item = ItemManager::GetInstance()->Looting(GetPosition());
+    if( item == NULL ) {
+        return;
+    }
+    
+    item->Use(this);
+    
+    cout << _remainBullet << endl;
+}
+
+void Player::IncreaseBullet(int count)
+{
+    _remainBullet += count;
 }
