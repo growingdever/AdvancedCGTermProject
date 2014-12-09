@@ -8,26 +8,32 @@
 
 #include <GLFW/glfw3.h>
 #include <GLUT/GLUT.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <iostream>
 
+#include "Player.h"
 #include "Camera.h"
+#include "Cube.h"
 
 using namespace std;
 
 
 Camera camera;
+Player player(camera);
+Cube cube(1.0f);
 
 
 static void error_callback(int error, const char* description)
 {
-    fputs(description, stderr);
+    cerr << description;
 }
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
+    }
+    
+    player.KeyEvent(key, scancode, action, mods);
 }
 
 void Projection(GLFWwindow *window) {
@@ -39,20 +45,7 @@ void Projection(GLFWwindow *window) {
 }
 
 void Update(GLFWwindow *window) {
-    camera.Update();
-    
-    if( glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS ) {
-        camera.Move(LEFT);
-    }
-    if( glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS ) {
-        camera.Move(RIGHT);
-    }
-    if( glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS ) {
-        camera.Move(FORWARD);
-    }
-    if( glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS ) {
-        camera.Move(BACK);
-    }
+    player.Update();
 }
 
 void Draw() {
@@ -78,6 +71,8 @@ void Draw() {
         glVertex3f(-1000.0f, 0.0f, 1000.0f);
     }
     glEnd();
+    
+    cube.Draw();
 }
 
 
@@ -89,9 +84,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
     
-    window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
-    if (!window)
-    {
+    window = glfwCreateWindow(800, 600, "Simple example", NULL, NULL);
+    if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
@@ -99,15 +93,9 @@ int main(void)
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     
-    camera.SetMode(FREE);
-    camera.SetPosition(glm::vec3(0, 0, -10));
-    camera.SetLookAt(glm::vec3(0, 0, 0));
-    camera.SetClipping(.01, 500);
-    camera.SetFOV(45);
-    camera.SetMovingScale(0.01f);
+    player.Init(window);
     
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         Projection(window);
         
         Update(window);
@@ -116,7 +104,9 @@ int main(void)
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+    
     glfwDestroyWindow(window);
     glfwTerminate();
-    exit(EXIT_SUCCESS);
+    
+    return 0;
 }
