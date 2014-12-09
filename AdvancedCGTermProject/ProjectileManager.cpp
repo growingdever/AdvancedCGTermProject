@@ -9,8 +9,6 @@
 #include "ProjectileManager.h"
 #include "Bullet.h"
 
-#include <iostream>
-
 using namespace std;
 
 ProjectileManager* ProjectileManager::_instance;
@@ -28,8 +26,6 @@ ProjectileManager::~ProjectileManager()
 
 void ProjectileManager::Update(float dt)
 {
-    std::cout << _bullets.size() << std::endl;
-    
 	int index = -1;
 	for(unsigned int i = 0; i < _bullets.size(); i ++) {
 		auto& p = _bullets[i];
