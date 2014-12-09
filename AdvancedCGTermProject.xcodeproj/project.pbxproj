@@ -10,13 +10,15 @@
 		E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E643DEB01A35FFCA002EFE58 /* main.cpp */; };
 		E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB71A35FFF7002EFE58 /* GLUT.framework */; };
 		E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB81A35FFF7002EFE58 /* OpenGL.framework */; };
-		E643DEBC1A360000002EFE58 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBB1A360000002EFE58 /* libIL.dylib */; };
-		E643DEBE1A360003002EFE58 /* libILU.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBD1A360003002EFE58 /* libILU.dylib */; };
-		E643DEC01A360008002EFE58 /* libILUT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBF1A360008002EFE58 /* libILUT.dylib */; };
 		E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */; };
 		E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC31A360048002EFE58 /* libassimp.dylib */; };
+		E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD00D1A36CD470012B7F2 /* Player.cpp */; };
+		E64AD0101A36D5B70012B7F2 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBB1A360000002EFE58 /* libIL.dylib */; };
+		E64AD0111A36D5B70012B7F2 /* libILU.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBD1A360003002EFE58 /* libILU.dylib */; };
+		E64AD0121A36D5B70012B7F2 /* libILUT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBF1A360008002EFE58 /* libILUT.dylib */; };
 		E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A398AE1A367326004FF749 /* libglfw3.3.dylib */; };
 		E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6A398B01A3678DA004FF749 /* Camera.cpp */; };
+		E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0EC41A36A16F0005FF7A /* Cube.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,9 +43,13 @@
 		E643DEBF1A360008002EFE58 /* libILUT.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libILUT.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libILUT.dylib; sourceTree = "<group>"; };
 		E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.dylib; path = ../../../../../usr/local/Cellar/glew/1.11.0/lib/libGLEW.1.11.dylib; sourceTree = "<group>"; };
 		E643DEC31A360048002EFE58 /* libassimp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.dylib; path = ../../../../../usr/local/Cellar/assimp/3.1.1/lib/libassimp.dylib; sourceTree = "<group>"; };
+		E64AD00D1A36CD470012B7F2 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		E64AD00E1A36CD470012B7F2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		E6A398AE1A367326004FF749 /* libglfw3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.0.4/lib/libglfw3.3.dylib; sourceTree = "<group>"; };
 		E6A398B01A3678DA004FF749 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		E6A398B11A3678DA004FF749 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		E6CF0EC41A36A16F0005FF7A /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		E6CF0EC51A36A16F0005FF7A /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +59,12 @@
 			files = (
 				E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */,
 				E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */,
-				E643DEBC1A360000002EFE58 /* libIL.dylib in Frameworks */,
-				E643DEBE1A360003002EFE58 /* libILU.dylib in Frameworks */,
-				E643DEC01A360008002EFE58 /* libILUT.dylib in Frameworks */,
 				E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */,
 				E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */,
 				E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */,
+				E64AD0101A36D5B70012B7F2 /* libIL.dylib in Frameworks */,
+				E64AD0111A36D5B70012B7F2 /* libILU.dylib in Frameworks */,
+				E64AD0121A36D5B70012B7F2 /* libILUT.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,10 @@
 				E643DEB01A35FFCA002EFE58 /* main.cpp */,
 				E6A398B01A3678DA004FF749 /* Camera.cpp */,
 				E6A398B11A3678DA004FF749 /* Camera.h */,
+				E6CF0EC41A36A16F0005FF7A /* Cube.cpp */,
+				E6CF0EC51A36A16F0005FF7A /* Cube.h */,
+				E64AD00D1A36CD470012B7F2 /* Player.cpp */,
+				E64AD00E1A36CD470012B7F2 /* Player.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -155,6 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */,
+				E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */,
 				E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */,
 				E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */,
 			);
