@@ -12,6 +12,7 @@
 
 Player::Player(Camera &camera)
 : _camera(camera)
+, _light(GL_LIGHT1)
 {
 
 }
@@ -31,11 +32,19 @@ void Player::Init(GLFWwindow *window)
     _camera.SetClipping(.01, 500);
     _camera.SetFOV(45);
     _camera.SetMovingScale(0.01f);
+    
+    if( ! _light.Init() ) {
+        // error!
+    }
+    _light.SetAmbient(1.0f, 1.0f, 1.0f);
+    _light.SetDiffuse(1.0f, 1.0f, 1.0f);
 }
 
 void Player::Update(float dt)
 {
     _camera.Update();
+    _position = _camera.camera_position;
+    _light.SetPosition(_position);
     
     if( glfwGetKey(_window, GLFW_KEY_A) == GLFW_PRESS ) {
         _camera.Move(LEFT);
@@ -61,6 +70,11 @@ void Player::Update(float dt)
     if( glfwGetKey(_window, GLFW_KEY_DOWN) == GLFW_PRESS ) {
         _camera.ChangePitch( _camera.camera_pitch - 0.05f );
     }
+}
+
+void Player::Draw()
+{
+    _light.Draw();
 }
 
 void Player::KeyEvent(int key, int scancode, int action, int mods)

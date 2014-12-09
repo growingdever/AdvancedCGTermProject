@@ -19,6 +19,7 @@
 		E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0131A36FA830012B7F2 /* ProjectileManager.cpp */; };
 		E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0161A36FC280012B7F2 /* Bullet.cpp */; };
 		E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0191A36FC650012B7F2 /* Node.cpp */; };
+		E64DD25C1A371C71007A82EF /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64DD25A1A371C71007A82EF /* Light.cpp */; };
 		E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A398AE1A367326004FF749 /* libglfw3.3.dylib */; };
 		E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6A398B01A3678DA004FF749 /* Camera.cpp */; };
 		E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0EC41A36A16F0005FF7A /* Cube.cpp */; };
@@ -54,6 +55,8 @@
 		E64AD0171A36FC280012B7F2 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		E64AD0191A36FC650012B7F2 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		E64AD01A1A36FC650012B7F2 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		E64DD25A1A371C71007A82EF /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		E64DD25B1A371C71007A82EF /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
 		E6A398AE1A367326004FF749 /* libglfw3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.0.4/lib/libglfw3.3.dylib; sourceTree = "<group>"; };
 		E6A398B01A3678DA004FF749 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		E6A398B11A3678DA004FF749 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				E64AD0171A36FC280012B7F2 /* Bullet.h */,
 				E64AD0191A36FC650012B7F2 /* Node.cpp */,
 				E64AD01A1A36FC650012B7F2 /* Node.h */,
+				E64DD25A1A371C71007A82EF /* Light.cpp */,
+				E64DD25B1A371C71007A82EF /* Light.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			files = (
 				E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */,
 				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
+				E64DD25C1A371C71007A82EF /* Light.cpp in Sources */,
 				E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */,
 				E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */,
 				E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */,

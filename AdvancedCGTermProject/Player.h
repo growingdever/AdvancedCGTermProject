@@ -10,14 +10,18 @@
 #define __AdvancedCGTermProject__Player__
 
 #include <GLFW/glfw3.h>
-#include "Camera.h"
 #include <glm/glm.hpp>
+#include "Camera.h"
+#include "Node.h"
+#include "Light.h"
 
-class Player {
+
+class Player : public Node {
 private:
     GLFWwindow *_window;
     Camera &_camera;
-    glm::vec3 _position;
+    
+    Light _light;
     
     
 public:
@@ -25,7 +29,8 @@ public:
     ~Player();
     
     void Init(GLFWwindow *window);
-    void Update(float dt);
+    virtual void Update(float dt);
+    virtual void Draw();
     void KeyEvent(int key, int scancode, int action, int mods);
     
     void Fire();

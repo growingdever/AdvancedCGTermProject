@@ -55,7 +55,15 @@ GLFWwindow* Init() {
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    glShadeModel(GL_SMOOTH);
+    glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
+    glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_NORMALIZE);
+    
     
     player.Init(window);
     
@@ -82,6 +90,9 @@ void Draw() {
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
+    
+    glPushMatrix();
+    glTranslatef(0, 0, -1.0f);
     glBegin(GL_TRIANGLES);
     glColor3f(1.f, 0.f, 0.f);
     glVertex3f(-0.6f, -0.4f, 0.f);
@@ -90,8 +101,10 @@ void Draw() {
     glColor3f(0.f, 0.f, 1.f);
     glVertex3f(0.f, 0.6f, 0.f);
     glEnd();
+    glPopMatrix();
     
     glLoadIdentity();
+    glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
     {
         glVertex3f(-1000.0f, 0.0f, -1000.0f);
@@ -106,6 +119,8 @@ void Draw() {
     glPushMatrix();
     ProjectileManager::GetInstance()->Draw();
     glPopMatrix();
+    
+    player.Draw();
 }
 
 
