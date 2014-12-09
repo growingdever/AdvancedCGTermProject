@@ -20,7 +20,7 @@ using namespace std;
 
 Camera camera;
 Player player(camera);
-Cube cube(1.0f);
+Cube cube(10.0f);
 double currentFrame;
 double deltaTime;
 double lastFrame;
@@ -64,9 +64,22 @@ GLFWwindow* Init() {
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
     
+    GLuint fogFilter = GL_EXP2;
+    GLfloat fogSize = 1000.0f;
+    GLfloat fogColor[4]= {0.1f, 0.1f, 0.1f, 1.0f};
+    GLfloat fogDensity = 0.023;
+    glEnable(GL_FOG);
+    glFogi(GL_FOG_MODE, fogFilter);
+    glFogfv(GL_FOG_COLOR, fogColor);
+    glFogf(GL_FOG_DENSITY, fogDensity);
+    glHint(GL_FOG_HINT, GL_DONT_CARE);
+    glFogf(GL_FOG_START, -fogSize);
+    glFogf(GL_FOG_END, fogSize);
+
+    
     
     player.Init(window);
-    
+    camera.SetPosition(glm::vec3(0, 10, -10));
     cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
     
     return window;
@@ -92,7 +105,8 @@ void Draw() {
     glLoadIdentity();
     
     glPushMatrix();
-    glTranslatef(0, 0, -1.0f);
+    glScalef(10.0f, 10.0f, 10.0f);
+    glTranslatef(0, 0, -20);
     glBegin(GL_TRIANGLES);
     glColor3f(1.f, 0.f, 0.f);
     glVertex3f(-0.6f, -0.4f, 0.f);
@@ -114,6 +128,7 @@ void Draw() {
     }
     glEnd();
     
+    glTranslatef(0, 0, 50);
     cube.Draw();
     
     glPushMatrix();

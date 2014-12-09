@@ -9,6 +9,9 @@
 #include "Player.h"
 #include "ProjectileManager.h"
 
+#include <iostream>
+using namespace std;
+
 
 Player::Player(Camera &camera)
 : _camera(camera)
@@ -31,13 +34,15 @@ void Player::Init(GLFWwindow *window)
     _camera.SetLookAt(glm::vec3(0, 0, 0));
     _camera.SetClipping(.01, 500);
     _camera.SetFOV(45);
-    _camera.SetMovingScale(0.01f);
+    _camera.SetMovingScale(0.1f);
     
     if( ! _light.Init() ) {
         // error!
     }
-    _light.SetAmbient(1.0f, 1.0f, 1.0f);
-    _light.SetDiffuse(1.0f, 1.0f, 1.0f);
+    _light.SetEnabled(true);
+    _light.SetAmbient(0.3f, 0.3f, 0.3f);
+    _light.SetDiffuse(0.2f, 0.2f, 0.2f);
+    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 1.5f);
 }
 
 void Player::Update(float dt)
