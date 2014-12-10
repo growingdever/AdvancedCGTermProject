@@ -16,6 +16,7 @@
 #include "ProjectileManager.h"
 #include "ItemManager.h"
 #include "ResourceManager.h"
+#include "GravityManager.h"
 #include "Creep.h"
 
 using namespace std;
@@ -75,13 +76,19 @@ GLFWwindow* Init() {
 
     
     player.Init(window);
-    camera.SetPosition(glm::vec3(0, 20, -80));
+    camera.SetPosition(glm::vec3(0, 40, -80));
     
     creep.InitWithFile("Data/CreepFirst.txt");
+    creep.SetPosition(glm::vec3(0, 10, 0));
     creep2.InitWithFile("Data/CreepSecond.txt");
-    creep2.SetPosition(glm::vec3(50, 0, 0));
+    creep2.SetPosition(glm::vec3(50, 10, 0));
     creep3.InitWithFile("Data/CreepThird.txt");
-    creep3.SetPosition(glm::vec3(100, 0, 0));
+    creep3.SetPosition(glm::vec3(100, 10, 0));
+    
+    
+    GravityManager::GetInstance()->AddNode(&creep);
+    GravityManager::GetInstance()->AddNode(&creep2);
+    GravityManager::GetInstance()->AddNode(&creep3);
     
     return window;
 }
@@ -99,12 +106,15 @@ void Update(float dt) {
     player.Update(dt);
     ProjectileManager::GetInstance()->Update(dt);
     ItemManager::GetInstance()->Update(dt);
+    GravityManager::GetInstance()->Update(dt);
     
     delta -= dt * 10;
     
-    glm::vec3 rot = creep.GetRotation();
-    rot += glm::vec3(0, 0.1, 0);
-    creep.SetRotation(rot);
+    
+    glm::vec3 dir;
+    dir = glm::normalize(player.GetPosition() - creep.GetPosition()) * 5.0f * dt;
+    dir.y = 0.0f;
+    creep.SetPosition(creep.GetPosition() + dir);
 }
 
 void Draw() {

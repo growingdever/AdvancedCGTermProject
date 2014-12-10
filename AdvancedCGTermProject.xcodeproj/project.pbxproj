@@ -11,6 +11,7 @@
 		E6155C4D1A3779A800B9734C /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C4B1A3779A800B9734C /* Item.cpp */; };
 		E6155C501A377A7D00B9734C /* ItemBullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C4E1A377A7D00B9734C /* ItemBullet.cpp */; };
 		E6155C531A3780AF00B9734C /* Macro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C521A3780AF00B9734C /* Macro.cpp */; };
+		E6155C561A38A04200B9734C /* GravityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6155C541A38A04200B9734C /* GravityManager.cpp */; };
 		E643DEB11A35FFCA002EFE58 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E643DEB01A35FFCA002EFE58 /* main.cpp */; };
 		E643DEB91A35FFF7002EFE58 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB71A35FFF7002EFE58 /* GLUT.framework */; };
 		E643DEBA1A35FFF7002EFE58 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEB81A35FFF7002EFE58 /* OpenGL.framework */; };
@@ -49,6 +50,8 @@
 		E6155C4F1A377A7D00B9734C /* ItemBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBullet.h; sourceTree = "<group>"; };
 		E6155C511A37809800B9734C /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		E6155C521A3780AF00B9734C /* Macro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Macro.cpp; sourceTree = "<group>"; };
+		E6155C541A38A04200B9734C /* GravityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GravityManager.cpp; sourceTree = "<group>"; };
+		E6155C551A38A04200B9734C /* GravityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravityManager.h; sourceTree = "<group>"; };
 		E643DEAD1A35FFCA002EFE58 /* AdvancedCGTermProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdvancedCGTermProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		E643DEB01A35FFCA002EFE58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E643DEB71A35FFF7002EFE58 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 				E668282B1A37F6FA00D7DFD7 /* ResourceManager.h */,
 				E64EA2561A38506200C20E08 /* Creep.cpp */,
 				E64EA2571A38506200C20E08 /* Creep.h */,
+				E6155C541A38A04200B9734C /* GravityManager.cpp */,
+				E6155C551A38A04200B9734C /* GravityManager.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			files = (
 				E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */,
 				E64EA2581A38506200C20E08 /* Creep.cpp in Sources */,
+				E6155C561A38A04200B9734C /* GravityManager.cpp in Sources */,
 				E668282C1A37F6FA00D7DFD7 /* ResourceManager.cpp in Sources */,
 				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
 				E64DD25C1A371C71007A82EF /* Light.cpp in Sources */,
