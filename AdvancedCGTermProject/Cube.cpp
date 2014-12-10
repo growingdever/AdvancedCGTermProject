@@ -49,14 +49,13 @@ void Cube::Draw()
 {
     bool isEnabledTexture = glIsEnabled(GL_TEXTURE_2D);
     
-    glColor3f(_color.x, _color.y, _color.z);
-    
     if( _texture != 0 ) {
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, _texture);
         DrawTextureBinded();
     }
     else {
+        glColor3f(_color.x, _color.y, _color.z);
         DrawTextureUnbinded();
     }
     
@@ -67,6 +66,10 @@ void Cube::Draw()
     else {
         glDisable(GL_TEXTURE_2D);
     }
+    
+    if( _texture != 0 ) {
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
 }
 
 void Cube::DrawTextureBinded()
@@ -74,13 +77,13 @@ void Cube::DrawTextureBinded()
     glBegin(GL_QUADS);
     {
         // Front Face
-        glNormal3f( 0.0f, 0.0f, 1.0f); // Normal Pointing Towards Viewer
+        glNormal3f( 0.0f, 0.0f, -1.0f); // Normal Pointing Towards Viewer
         glTexCoord2f(0.0f, 0.0f); VertexByVector3( _vertices[0] );
         glTexCoord2f(1.0f, 0.0f); VertexByVector3( _vertices[1] );
         glTexCoord2f(1.0f, 1.0f); VertexByVector3( _vertices[2] );
         glTexCoord2f(0.0f, 1.0f); VertexByVector3( _vertices[3] );
         // Back Face
-        glNormal3f( 0.0f, 0.0f,-1.0f); // Normal Pointing Away From Viewer
+        glNormal3f( 0.0f, 0.0f,1.0f); // Normal Pointing Away From Viewer
         glTexCoord2f(1.0f, 0.0f); VertexByVector3( _vertices[4] );
         glTexCoord2f(1.0f, 1.0f); VertexByVector3( _vertices[5] );
         glTexCoord2f(0.0f, 1.0f); VertexByVector3( _vertices[6] );

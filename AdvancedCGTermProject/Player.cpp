@@ -44,8 +44,8 @@ void Player::Init(GLFWwindow *window)
     _light.SetAmbient(0.1f, 0.1f, 0.1f);
     _light.SetDiffuse(1.0f, 1.0f, 1.0f);
     _light.SetAttenuation(GL_CONSTANT_ATTENUATION, 0.0f);
-    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 0.01f);
-    _light.SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.001f);
+    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 0.001f);
+    _light.SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.0001f);
 }
 
 void Player::Update(float dt)
