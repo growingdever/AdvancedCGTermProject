@@ -52,9 +52,9 @@ void ProjectileManager::Draw()
 
 void ProjectileManager::CreateBullet(glm::vec3 pos, glm::vec3 dir)
 {
-    glm::vec3 dirVec = dir / 20.0f;
+    glm::vec3 dirVec = glm::normalize(dir);
     Bullet *bullet = new Bullet(pos, dirVec);
-    auto p = pair<Bullet*, float>(bullet, 5.0f);
+    auto p = pair<Bullet*, float>(bullet, 10.0f);
     _bullets.push_back(p);
 }
 

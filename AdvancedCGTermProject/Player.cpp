@@ -50,6 +50,8 @@ void Player::Init(GLFWwindow *window)
 
 void Player::Update(float dt)
 {
+    Node::Update(dt);
+    
     if( glfwGetKey(_window, GLFW_KEY_A) == GLFW_PRESS ) {
         _camera.Move(LEFT);
     }
