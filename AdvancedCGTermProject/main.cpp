@@ -15,13 +15,14 @@
 #include "Cube.h"
 #include "ProjectileManager.h"
 #include "ItemManager.h"
+#include "ResourceManager.h"
 
 using namespace std;
 
 
 Camera camera;
 Player player(camera);
-Cube cube(10.0f), cube2(10.0f);
+Cube cube(10.0f), cube2(10.0f), cube3(10.0f);
 double currentFrame;
 double deltaTime;
 double lastFrame;
@@ -47,7 +48,7 @@ GLFWwindow* Init() {
     if (!glfwInit()) {
         return NULL;
     }
-    
+
     GLFWwindow *window = glfwCreateWindow(800, 600, "Struggle Cube", NULL, NULL);
     if (!window) {
         glfwTerminate();
@@ -57,6 +58,10 @@ GLFWwindow* Init() {
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     
+    
+    ResourceManager::GetInstance()->LoadTexture("item1", "Textures/test.tga");
+    ResourceManager::GetInstance()->LoadTexture("item2", "Textures/test.jpg");
+    
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
@@ -65,12 +70,16 @@ GLFWwindow* Init() {
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_NORMALIZE);
+    glEnable(GL_TEXTURE_2D);
 
     
     player.Init(window);
     camera.SetPosition(glm::vec3(0, 10, -10));
     cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
     cube2.SetColor(glm::vec3(0.0f, 0.0f, 1.0f));
+
+    cube2.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
+    cube3.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
     
     return window;
 }
@@ -97,6 +106,10 @@ void Draw() {
     glLoadIdentity();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    cube3.Draw();
+    glBindTexture(GL_TEXTURE_2D, 0);
+
     
     glPushMatrix();
     player.Draw();
@@ -162,6 +175,7 @@ void Draw() {
     glPopMatrix();
     
 
+    glBindTexture(GL_TEXTURE_2D, 0);
     ProjectileManager::GetInstance()->Draw();
     ItemManager::GetInstance()->Draw();
 }

@@ -17,13 +17,11 @@
 		E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */; };
 		E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEC31A360048002EFE58 /* libassimp.dylib */; };
 		E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD00D1A36CD470012B7F2 /* Player.cpp */; };
-		E64AD0101A36D5B70012B7F2 /* libIL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBB1A360000002EFE58 /* libIL.dylib */; };
-		E64AD0111A36D5B70012B7F2 /* libILU.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBD1A360003002EFE58 /* libILU.dylib */; };
-		E64AD0121A36D5B70012B7F2 /* libILUT.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E643DEBF1A360008002EFE58 /* libILUT.dylib */; };
 		E64AD0151A36FA830012B7F2 /* ProjectileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0131A36FA830012B7F2 /* ProjectileManager.cpp */; };
 		E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0161A36FC280012B7F2 /* Bullet.cpp */; };
 		E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64AD0191A36FC650012B7F2 /* Node.cpp */; };
 		E64DD25C1A371C71007A82EF /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E64DD25A1A371C71007A82EF /* Light.cpp */; };
+		E668282C1A37F6FA00D7DFD7 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E668282A1A37F6FA00D7DFD7 /* ResourceManager.cpp */; };
 		E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A398AE1A367326004FF749 /* libglfw3.3.dylib */; };
 		E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6A398B01A3678DA004FF749 /* Camera.cpp */; };
 		E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0EC41A36A16F0005FF7A /* Cube.cpp */; };
@@ -54,9 +52,6 @@
 		E643DEB01A35FFCA002EFE58 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E643DEB71A35FFF7002EFE58 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		E643DEB81A35FFF7002EFE58 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		E643DEBB1A360000002EFE58 /* libIL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIL.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libIL.dylib; sourceTree = "<group>"; };
-		E643DEBD1A360003002EFE58 /* libILU.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libILU.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libILU.dylib; sourceTree = "<group>"; };
-		E643DEBF1A360008002EFE58 /* libILUT.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libILUT.dylib; path = ../../../../../usr/local/Cellar/devil/1.7.8_1/lib/libILUT.dylib; sourceTree = "<group>"; };
 		E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.dylib; path = ../../../../../usr/local/Cellar/glew/1.11.0/lib/libGLEW.1.11.dylib; sourceTree = "<group>"; };
 		E643DEC31A360048002EFE58 /* libassimp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.dylib; path = ../../../../../usr/local/Cellar/assimp/3.1.1/lib/libassimp.dylib; sourceTree = "<group>"; };
 		E64AD00D1A36CD470012B7F2 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -69,6 +64,8 @@
 		E64AD01A1A36FC650012B7F2 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		E64DD25A1A371C71007A82EF /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
 		E64DD25B1A371C71007A82EF /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		E668282A1A37F6FA00D7DFD7 /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		E668282B1A37F6FA00D7DFD7 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		E6A398AE1A367326004FF749 /* libglfw3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.0.4/lib/libglfw3.3.dylib; sourceTree = "<group>"; };
 		E6A398B01A3678DA004FF749 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		E6A398B11A3678DA004FF749 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -86,9 +83,6 @@
 				E643DEC21A360041002EFE58 /* libGLEW.1.11.dylib in Frameworks */,
 				E643DEC41A360048002EFE58 /* libassimp.dylib in Frameworks */,
 				E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */,
-				E64AD0101A36D5B70012B7F2 /* libIL.dylib in Frameworks */,
-				E64AD0111A36D5B70012B7F2 /* libILU.dylib in Frameworks */,
-				E64AD0121A36D5B70012B7F2 /* libILUT.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +95,6 @@
 				E6A398AE1A367326004FF749 /* libglfw3.3.dylib */,
 				E643DEC31A360048002EFE58 /* libassimp.dylib */,
 				E643DEC11A360041002EFE58 /* libGLEW.1.11.dylib */,
-				E643DEBF1A360008002EFE58 /* libILUT.dylib */,
-				E643DEBD1A360003002EFE58 /* libILU.dylib */,
-				E643DEBB1A360000002EFE58 /* libIL.dylib */,
 				E643DEB71A35FFF7002EFE58 /* GLUT.framework */,
 				E643DEB81A35FFF7002EFE58 /* OpenGL.framework */,
 				E643DEAF1A35FFCA002EFE58 /* AdvancedCGTermProject */,
@@ -145,6 +136,8 @@
 				E6155C4F1A377A7D00B9734C /* ItemBullet.h */,
 				E6155C511A37809800B9734C /* Macro.h */,
 				E6155C521A3780AF00B9734C /* Macro.cpp */,
+				E668282A1A37F6FA00D7DFD7 /* ResourceManager.cpp */,
+				E668282B1A37F6FA00D7DFD7 /* ResourceManager.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -206,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64AD00F1A36CD470012B7F2 /* Player.cpp in Sources */,
+				E668282C1A37F6FA00D7DFD7 /* ResourceManager.cpp in Sources */,
 				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
 				E64DD25C1A371C71007A82EF /* Light.cpp in Sources */,
 				E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */,
