@@ -23,13 +23,12 @@ using namespace std;
 
 Camera camera;
 Player player(camera);
-Cube cube(10.0f), cube2(10.0f), cube3(10.0f);
 double currentFrame;
 double deltaTime;
 double lastFrame;
 double delta = 50;
 
-Creep creep;
+Creep creep, creep2, creep3;
 
 
 static void error_callback(int error, const char* description)
@@ -77,13 +76,12 @@ GLFWwindow* Init() {
     
     player.Init(window);
     camera.SetPosition(glm::vec3(0, 20, -80));
-    cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
-    cube2.SetColor(glm::vec3(0.0f, 0.0f, 1.0f));
-
-    cube2.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
-    cube3.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
     
     creep.InitWithFile("Data/CreepFirst.txt");
+    creep2.InitWithFile("Data/CreepSecond.txt");
+    creep2.SetPosition(glm::vec3(50, 0, 0));
+    creep3.InitWithFile("Data/CreepThird.txt");
+    creep3.SetPosition(glm::vec3(100, 0, 0));
     
     return window;
 }
@@ -103,6 +101,10 @@ void Update(float dt) {
     ItemManager::GetInstance()->Update(dt);
     
     delta -= dt * 10;
+    
+    glm::vec3 rot = creep.GetRotation();
+    rot += glm::vec3(0, 0.1, 0);
+    creep.SetRotation(rot);
 }
 
 void Draw() {
@@ -111,10 +113,9 @@ void Draw() {
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    cube3.Draw();
-    glBindTexture(GL_TEXTURE_2D, 0);
-    
     creep.Draw();
+    creep2.Draw();
+    creep3.Draw();
 
     
     glPushMatrix();
@@ -171,13 +172,6 @@ void Draw() {
         glVertex3f(-1000.0f, 0.0f, 1000.0f);
         glEnd();
     }
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(50, 0, delta);
-    cube.Draw();
-    glTranslatef(0, 0, 50);
-    cube2.Draw();
     glPopMatrix();
     
 

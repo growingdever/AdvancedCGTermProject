@@ -51,6 +51,23 @@ bool Creep::InitWithFile(std::string path)
 
 void Creep::Draw()
 {
+    glm::vec3 p2 = _position + _forward * 15.0f;
+    glm::vec3 p3 = _position + _up * 15.0f;
+    
+    glPointSize(20.0f);
+    
+    glBegin(GL_LINES);
+    glVertex3f(_position.x, _position.y, _position.z);
+    glVertex3f(p2.x, p2.y, p2.z);
+    glVertex3f(_position.x, _position.y, _position.z);
+    glVertex3f(p3.x, p3.y, p3.z);
+    glEnd();
+    
+    glBegin(GL_POINTS);
+    glVertex3f(p2.x, p2.y, p2.z);
+    glVertex3f(p3.x, p3.y, p3.z);
+    glEnd();
+    
     glPushMatrix();
     glTranslatef(_position.x, _position.y, _position.z);
     for(auto& cube : _cubes) {
