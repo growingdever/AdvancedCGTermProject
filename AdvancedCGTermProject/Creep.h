@@ -19,13 +19,18 @@
 class Creep : public Node {
 private:
     std::vector< Cube > _cubes;
+    std::vector< glm::vec3 > _particleDirs;
+    
+    bool _isDead = false;
     
 public:
     Creep();
     virtual ~Creep();
     virtual bool InitWithFile(std::string path);
+    virtual void Update(float dt);
     virtual void Draw();
     
+    virtual void Destroy();
 };
 
 #endif /* defined(__AdvancedCGTermProject__Creep__) */

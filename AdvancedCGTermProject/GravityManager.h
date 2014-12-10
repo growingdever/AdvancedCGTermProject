@@ -37,6 +37,7 @@ public:
     
     void Update(float dt);
     void AddNode(Node *node);
+    void RemoveNode(Node *node);
 };
 
 #endif /* defined(__AdvancedCGTermProject__GravityManager__) */

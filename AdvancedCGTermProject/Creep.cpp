@@ -7,9 +7,10 @@
 //
 
 #include "Creep.h"
+#include "GravityManager.h"
+#include "Macro.h"
 #include <glm/glm.hpp>
 #include <fstream>
-
 using namespace std;
 
 
@@ -49,6 +50,21 @@ bool Creep::InitWithFile(std::string path)
     return true;
 }
 
+void Creep::Update(float dt)
+{
+    Node::Update(dt);
+    
+    if( _isDead ) {
+        for( unsigned int i = 0; i < _cubes.size(); i ++ ) {
+            auto &cube = _cubes[i];
+            auto pos = cube.GetPosition();
+            glm::vec3 &dir = _particleDirs[i];
+            dir *= 0.95;
+            cube.SetPosition(pos + dir);
+        }
+    }
+}
+
 void Creep::Draw()
 {
     glm::vec3 p2 = _position + _forward * 15.0f;
@@ -82,4 +98,20 @@ void Creep::Draw()
         glPopMatrix();
     }
     glPopMatrix();
+}
+
+void Creep::Destroy()
+{
+    _isDead = true;
+    GravityManager::GetInstance()->RemoveNode(this);
+    
+    for(auto& cube : _cubes) {
+        auto pos = cube.GetPosition();
+        glm::vec3 dir = glm::normalize(pos - _position);
+        dir.x += RandomRangeDouble(-2, 2);
+        dir.y += RandomRangeDouble(-2, 2);
+        dir.z += RandomRangeDouble(-2, 2);
+        dir *= 1.0f;
+        _particleDirs.push_back(dir);
+    }
 }

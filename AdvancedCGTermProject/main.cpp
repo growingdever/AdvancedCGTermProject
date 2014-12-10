@@ -90,6 +90,8 @@ GLFWwindow* Init() {
     GravityManager::GetInstance()->AddNode(&creep2);
     GravityManager::GetInstance()->AddNode(&creep3);
     
+    creep.Destroy();
+    
     return window;
 }
 
@@ -109,6 +111,10 @@ void Update(float dt) {
     GravityManager::GetInstance()->Update(dt);
     
     delta -= dt * 10;
+    
+    creep.Update(dt);
+    creep2.Update(dt);
+    creep3.Update(dt);
     
     
     glm::vec3 dir;

@@ -38,3 +38,11 @@ void GravityManager::AddNode(Node *node)
         _nodes.push_back(node);
     }
 }
+
+void GravityManager::RemoveNode(Node *node)
+{
+    auto it = std::find(_nodes.begin(), _nodes.end(), node);
+    if( it != _nodes.end() ) {
+        _nodes.erase(it);
+    }
+}
