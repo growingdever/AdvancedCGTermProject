@@ -125,6 +125,8 @@ void Camera::Move(CameraDirection dir) {
                 break;
         }
     }
+    
+    camera_position_delta.y = 0;
 }
 void Camera::ChangePitch(float degrees) {
     //Check bounds with the max pitch rate so that we aren't moving too fast
