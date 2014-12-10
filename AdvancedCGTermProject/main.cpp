@@ -16,6 +16,7 @@
 #include "ProjectileManager.h"
 #include "ItemManager.h"
 #include "ResourceManager.h"
+#include "Creep.h"
 
 using namespace std;
 
@@ -27,6 +28,8 @@ double currentFrame;
 double deltaTime;
 double lastFrame;
 double delta = 50;
+
+Creep creep;
 
 
 static void error_callback(int error, const char* description)
@@ -73,12 +76,14 @@ GLFWwindow* Init() {
 
     
     player.Init(window);
-    camera.SetPosition(glm::vec3(0, 10, -10));
+    camera.SetPosition(glm::vec3(0, 20, -80));
     cube.SetColor(glm::vec3(1.0f, 1.0f, 0.0f));
     cube2.SetColor(glm::vec3(0.0f, 0.0f, 1.0f));
 
     cube2.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
     cube3.SetTexture(ResourceManager::GetInstance()->GetTexture("item1"));
+    
+    creep.InitWithFile("Data/CreepFirst.txt");
     
     return window;
 }
@@ -108,6 +113,8 @@ void Draw() {
     
     cube3.Draw();
     glBindTexture(GL_TEXTURE_2D, 0);
+    
+    creep.Draw();
 
     
     glPushMatrix();
