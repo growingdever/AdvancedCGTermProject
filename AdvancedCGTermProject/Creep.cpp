@@ -7,7 +7,7 @@
 //
 
 #include "Creep.h"
-#include "GravityManager.h"
+#include "CreepManager.h"
 #include "Macro.h"
 #include <glm/glm.hpp>
 #include <fstream>
@@ -62,6 +62,11 @@ void Creep::Update(float dt)
             dir *= 0.95;
             cube.SetPosition(pos + dir);
         }
+        
+        _removeTimer -= dt;
+        if( _removeTimer < 0 ) {
+            CreepManager::GetInstance()->RemoveCreep(this);
+        }
     }
 }
 
@@ -103,7 +108,6 @@ void Creep::Draw()
 void Creep::Destroy()
 {
     _isDead = true;
-    GravityManager::GetInstance()->RemoveNode(this);
     
     for(auto& cube : _cubes) {
         auto pos = cube.GetPosition();

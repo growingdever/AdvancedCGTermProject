@@ -17,7 +17,7 @@
 #include "ItemManager.h"
 #include "ResourceManager.h"
 #include "GravityManager.h"
-#include "Creep.h"
+#include "CreepManager.h"
 
 using namespace std;
 
@@ -28,8 +28,6 @@ double currentFrame;
 double deltaTime;
 double lastFrame;
 double delta = 50;
-
-Creep creep, creep2, creep3;
 
 
 static void error_callback(int error, const char* description)
@@ -61,6 +59,8 @@ GLFWwindow* Init() {
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
     
+    srand((unsigned)(time)(NULL));
+    
     
     ResourceManager::GetInstance()->LoadTexture("item1", "Textures/item1.tga");
     
@@ -78,19 +78,7 @@ GLFWwindow* Init() {
     player.Init(window);
     camera.SetPosition(glm::vec3(0, 40, -80));
     
-    creep.InitWithFile("Data/CreepFirst.txt");
-    creep.SetPosition(glm::vec3(0, 10, 0));
-    creep2.InitWithFile("Data/CreepSecond.txt");
-    creep2.SetPosition(glm::vec3(50, 10, 0));
-    creep3.InitWithFile("Data/CreepThird.txt");
-    creep3.SetPosition(glm::vec3(100, 10, 0));
-    
-    
-    GravityManager::GetInstance()->AddNode(&creep);
-    GravityManager::GetInstance()->AddNode(&creep2);
-    GravityManager::GetInstance()->AddNode(&creep3);
-    
-    creep.Destroy();
+    CreepManager::GetInstance()->SetPlayer(&player);
     
     return window;
 }
@@ -109,18 +97,9 @@ void Update(float dt) {
     ProjectileManager::GetInstance()->Update(dt);
     ItemManager::GetInstance()->Update(dt);
     GravityManager::GetInstance()->Update(dt);
+    CreepManager::GetInstance()->Update(dt);
     
     delta -= dt * 10;
-    
-    creep.Update(dt);
-    creep2.Update(dt);
-    creep3.Update(dt);
-    
-    
-    glm::vec3 dir;
-    dir = glm::normalize(player.GetPosition() - creep.GetPosition()) * 5.0f * dt;
-    dir.y = 0.0f;
-    creep.SetPosition(creep.GetPosition() + dir);
 }
 
 void Draw() {
@@ -128,11 +107,6 @@ void Draw() {
     glLoadIdentity();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    creep.Draw();
-    creep2.Draw();
-    creep3.Draw();
-
     
     glPushMatrix();
     player.Draw();
@@ -194,6 +168,7 @@ void Draw() {
     glBindTexture(GL_TEXTURE_2D, 0);
     ProjectileManager::GetInstance()->Draw();
     ItemManager::GetInstance()->Draw();
+    CreepManager::GetInstance()->Draw();
 }
 
 

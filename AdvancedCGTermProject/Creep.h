@@ -22,6 +22,7 @@ private:
     std::vector< glm::vec3 > _particleDirs;
     
     bool _isDead = false;
+    float _removeTimer = 3.0f;
     
 public:
     Creep();
