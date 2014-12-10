@@ -30,7 +30,7 @@ Cube::~Cube()
     
 }
 
-void Cube::InitWithLength(float length)
+bool Cube::InitWithLength(float length)
 {
     _vertices.clear();
 
@@ -43,6 +43,8 @@ void Cube::InitWithLength(float length)
     _vertices.push_back( glm::vec3(1 * length / 2, -1 * length / 2, -1 * length / 2) );
     _vertices.push_back( glm::vec3(1 * length / 2, 1 * length / 2, -1 * length / 2) );
     _vertices.push_back( glm::vec3(-1 * length / 2, 1 * length / 2, -1 * length / 2) );
+
+    return true;
 }
 
 void Cube::Draw()

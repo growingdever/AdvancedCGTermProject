@@ -18,7 +18,7 @@
 
 class Creep : public Node {
 private:
-    std::vector< std::pair<glm::vec3, Cube> > _cubes;
+    std::vector< Cube > _cubes;
     
 public:
     Creep();

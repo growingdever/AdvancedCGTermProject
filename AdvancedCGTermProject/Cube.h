@@ -9,11 +9,12 @@
 #ifndef __AdvancedCGTermProject__Cube__
 #define __AdvancedCGTermProject__Cube__
 
+#include "Node.h"
 #include <GLUT/GLUT.h>
 #include <glm/glm.hpp>
 #include <vector>
 
-class Cube {
+class Cube : public Node {
 private:
     GLuint _texture;
     float _length;
@@ -26,8 +27,8 @@ public:
     Cube(GLuint texture, float length);
     ~Cube();
     
-    void InitWithLength(float length);
-    void Draw();
+    bool InitWithLength(float length);
+    virtual void Draw();
     void DrawTextureBinded();
     void DrawTextureUnbinded();
     void VertexByVector3(const glm::vec3& pos);

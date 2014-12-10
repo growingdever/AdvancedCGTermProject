@@ -40,9 +40,10 @@ bool Creep::InitWithFile(std::string path)
         ifs >> color.x >> color.y >> color.z;
         
         Cube cube(size);
+        cube.SetPosition(pos);
         cube.SetColor(color);
         
-        _cubes.push_back(pair<glm::vec3, Cube>(pos, cube));
+        _cubes.push_back(cube);
     }
     
     return true;
@@ -52,9 +53,8 @@ void Creep::Draw()
 {
     glPushMatrix();
     glTranslatef(_position.x, _position.y, _position.z);
-    for(auto& p : _cubes) {
-        const glm::vec3& pos = p.first;
-        Cube& cube = p.second;
+    for(auto& cube : _cubes) {
+        glm::vec3 pos = cube.GetPosition();
         
         glPushMatrix();
         glTranslatef(pos.x, pos.y, pos.z);
