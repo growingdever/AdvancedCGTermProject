@@ -59,8 +59,7 @@ GLFWwindow* Init() {
     glfwSetKeyCallback(window, key_callback);
     
     
-    ResourceManager::GetInstance()->LoadTexture("item1", "Textures/test.tga");
-    ResourceManager::GetInstance()->LoadTexture("item2", "Textures/test.jpg");
+    ResourceManager::GetInstance()->LoadTexture("item1", "Textures/item1.tga");
     
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glShadeModel(GL_SMOOTH);
