@@ -17,6 +17,9 @@ protected:
     glm::vec3 _position;
     glm::vec3 _scale;
     glm::vec3 _rotation;
+    glm::vec3 _up;
+    glm::vec3 _forward;
+    
     
 public:
     Node();
