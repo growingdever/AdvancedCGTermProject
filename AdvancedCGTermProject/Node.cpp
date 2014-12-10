@@ -8,13 +8,13 @@
 
 #include "Node.h"
 #include <glm/gtx/transform.hpp>
-#include <glm/gtc/quaternion.hpp>
-#include <glm/gtx/quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 
 Node::Node()
+: _up(0, 1, 0)
+, _forward(0, 0, -1)
 {
 }
 
@@ -56,9 +56,9 @@ glm::vec3 Node::GetRotation()
     return _rotation;
 }
 
-void Node::SetRotation(const glm::vec3& vec)
+void Node::SetRotation(const glm::vec3& eulerDegree)
 {
-    _rotation = vec;
+    _rotation = eulerDegree;
     if( _rotation.x > 360 ) {
         _rotation.x -= 360;
     } else if( _rotation.x < -360 ) {
@@ -75,10 +75,10 @@ void Node::SetRotation(const glm::vec3& vec)
         _rotation.z += 360;
     }
     
-    glm::quat quatRoll = glm::angleAxis(vec.x, glm::vec3(1, 0, 0));
-    glm::quat quatYaw = glm::angleAxis(vec.y, glm::vec3(0, 1, 0));
-    glm::quat quatPitch = glm::angleAxis(vec.z, glm::vec3(0, 0, 1));
-    glm::quat temp = quatRoll * quatYaw * quatPitch;
+    _quatRoll = glm::angleAxis(eulerDegree.x, glm::vec3(1, 0, 0));
+    _quatYaw = glm::angleAxis(eulerDegree.y, glm::vec3(0, 1, 0));
+    _quatPitch = glm::angleAxis(eulerDegree.z, glm::vec3(0, 0, 1));
+    glm::quat temp = _quatRoll * _quatYaw * _quatPitch;
     
     _forward = glm::vec3(0, 0, -1) * temp;
     _up = glm::vec3(0, 1, 0) * temp;

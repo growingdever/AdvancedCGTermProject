@@ -10,6 +10,8 @@
 #define __AdvancedCGTermProject__Node__
 
 #include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 
 class Node {
@@ -19,6 +21,10 @@ protected:
     glm::vec3 _rotation;
     glm::vec3 _up;
     glm::vec3 _forward;
+    
+    glm::quat _quatRoll;
+    glm::quat _quatYaw;
+    glm::quat _quatPitch;
     
     
 public:
@@ -34,6 +40,16 @@ public:
     
     glm::vec3 GetRotation();
     virtual void SetRotation(const glm::vec3& rot);
+    
+    glm::quat GetRoll() {
+        return _quatRoll;
+    }
+    glm::quat GetYaw() {
+        return _quatYaw;
+    }
+    glm::quat GetPitch() {
+        return _quatPitch;
+    }
 };
 
 #endif /* defined(__AdvancedCGTermProject__Node__) */
