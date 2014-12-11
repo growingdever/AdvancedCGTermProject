@@ -23,5 +23,7 @@ double RandomRangeDouble(double start, double end)
 int RandomRangeInt(int start, int end)
 {
     int length = (end - start);
-    return (int)(Random0to1() * length - length/2);
+    int n = rand() % length;
+    
+    return n + start;
 }

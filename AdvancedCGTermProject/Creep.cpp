@@ -34,9 +34,9 @@ bool Creep::InitWithFile(std::string path)
     if( path == "Data/CreepFirst.txt" ) {
         _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
     } else if( path == "Data/CreepSecond.txt" ) {
-        _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
-    } else if( path == "Data/CreepThrid.txt" ) {
-        _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
+        _boundingBox = Box3d(glm::vec3(-9, 0, -9), glm::vec3(9, 40, 9));
+    } else if( path == "Data/CreepThird.txt" ) {
+        _boundingBox = Box3d(glm::vec3(-10, 0, -10), glm::vec3(10, 60, 10));
     }
     
     int n;

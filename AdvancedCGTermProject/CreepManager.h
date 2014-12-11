@@ -23,6 +23,8 @@ private:
     
     std::vector<Creep*> _nodes;
     std::vector<float> _timers;
+    int TotalCreep = 3;
+    int _killedCreep = 0;
     
     
 private:

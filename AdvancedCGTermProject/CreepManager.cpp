@@ -31,7 +31,7 @@ CreepManager::~CreepManager()
 
 void CreepManager::Update(float dt)
 {
-    if( _nodes.size() < 1 ) {
+    if( _nodes.size() < TotalCreep ) {
         CreateCreep();
     }
     
@@ -74,7 +74,7 @@ void CreepManager::CreateCreep()
 {
     Creep *creep = new Creep;
     std::string path;
-    int type = RandomRangeInt(0, 2);
+    int type = RandomRangeInt(0, 3);
     if( type == 0 ) {
         path = "Data/CreepFirst.txt";
     } else if( type == 1 ) {
@@ -84,7 +84,7 @@ void CreepManager::CreateCreep()
     }
 
     creep->InitWithFile(path);
-//    creep->SetPosition(glm::vec3( RandomRangeDouble(-500, 500), 0, RandomRangeDouble(-500, 500) ));
+    creep->SetPosition(glm::vec3( RandomRangeDouble(-500, 500), 0, RandomRangeDouble(-500, 500) ));
     _nodes.push_back(creep);
     
     GravityManager::GetInstance()->AddNode(creep);
@@ -99,5 +99,11 @@ void CreepManager::RemoveCreep(Creep *node)
         
         delete creep;
         _nodes.erase(it);
+        
+        _killedCreep++;
+        if( _killedCreep > TotalCreep ) {
+            TotalCreep++;
+            _killedCreep = 0;
+        }
     }
 }
