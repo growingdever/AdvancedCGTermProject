@@ -109,16 +109,18 @@ void Creep::Draw()
     glm::vec3 axis = glm::axis(_rotation);
     float angle = glm::angle(_rotation);
     
+    glm::vec3 prevPos;
+    
     glPushMatrix();
     glRotatef(angle, axis.x, axis.y, axis.z);
     glTranslatef(_position.x, _position.y, _position.z);
     for(auto& cube : _cubes) {
         glm::vec3 pos = cube.GetPosition();
+        glm::vec3 diff = pos - prevPos;
+        prevPos = pos;
         
-        glPushMatrix();
-        glTranslatef(pos.x, pos.y, pos.z);
+        glTranslatef(diff.x, diff.y, diff.z);
         cube.Draw();
-        glPopMatrix();
     }
     glPopMatrix();
 }
