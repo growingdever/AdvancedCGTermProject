@@ -31,7 +31,13 @@ CreepManager::~CreepManager()
 
 void CreepManager::Update(float dt)
 {
-    if( _nodes.size() < TotalCreep ) {
+    int aliveCreepCount = 0;
+    for(auto& node : _nodes) {
+        if( ! node->IsDead() ) {
+            aliveCreepCount++;
+        }
+    }
+    if( aliveCreepCount < TotalCreep ) {
         CreateCreep();
     }
     
@@ -40,7 +46,6 @@ void CreepManager::Update(float dt)
     }
     
     auto bullets = ProjectileManager::GetInstance()->GetBullets();
-    
     for(auto& node : _nodes) {
         glm::vec3 pos = node->GetPosition();
         Box3d boundingBoxNode = node->BoundingBox();

@@ -27,7 +27,8 @@ private:
     float _boundingBoxSizeLength;
     
     bool _isDead = false;
-    float _removeTimer = 3.0f;
+    float _removeTimer = 5.0f;
+    float _rotSpeed = 30.0f;
     
 public:
     Creep();
@@ -40,6 +41,9 @@ public:
     virtual void Divide();
 
     Box3d BoundingBox();
+    bool IsDead() {
+        return _isDead;
+    }
 };
 
 #endif /* defined(__AdvancedCGTermProject__Creep__) */

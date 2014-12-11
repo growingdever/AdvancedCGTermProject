@@ -69,12 +69,25 @@ void Creep::Update(float dt)
     _boundingBox.MoveTo(_position);
     
     if( _isDead ) {
-        for( unsigned int i = 0; i < _cubes.size(); i ++ ) {
-            auto &cube = _cubes[i];
-            auto pos = cube.GetPosition();
-            glm::vec3 &dir = _particleDirs[i];
-            dir *= 0.95;
-            cube.SetPosition(pos + dir);
+        if( _removeTimer > 4.0f ) {
+            for( unsigned int i = 0; i < _cubes.size(); i ++ ) {
+                auto &cube = _cubes[i];
+                auto pos = cube.GetPosition();
+                glm::vec3 &dir = _particleDirs[i];
+                dir *= 0.95;
+                
+                cube.SetPosition(pos + dir);
+            }
+        } else {
+            for( unsigned int i = 0; i < _cubes.size(); i ++ ) {
+                auto &cube = _cubes[i];
+                auto pos = cube.GetPosition();
+                pos.y *= 1.01;
+                cube.SetPosition(pos);
+            }
+            
+            RotateY(_rotSpeed * 10 * dt);
+            _rotSpeed *= 1.01f;
         }
         
         _removeTimer -= dt;
@@ -112,8 +125,8 @@ void Creep::Draw()
     glm::vec3 prevPos;
     
     glPushMatrix();
-    glRotatef(angle, axis.x, axis.y, axis.z);
     glTranslatef(_position.x, _position.y, _position.z);
+    glRotatef(angle, axis.x, axis.y, axis.z);
     for(auto& cube : _cubes) {
         glm::vec3 pos = cube.GetPosition();
         glm::vec3 diff = pos - prevPos;
@@ -135,7 +148,7 @@ void Creep::Destroy()
         auto pos = cube.GetPosition();
         glm::vec3 dir = glm::normalize(pos - _position);
         dir.x += RandomRangeDouble(-2, 2);
-        dir.y += RandomRangeDouble(-2, 2);
+        dir.y += RandomRangeDouble(0, 2);
         dir.z += RandomRangeDouble(-2, 2);
         dir *= 1.0f;
         _particleDirs.push_back(dir);
