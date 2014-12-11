@@ -72,8 +72,11 @@ void Creep::Update(float dt)
 
 void Creep::Draw()
 {
-    glm::vec3 p2 = _position + _forward * 15.0f;
-    glm::vec3 p3 = _position + _up * 15.0f;
+    glm::vec3 forward = GetForward();
+    glm::vec3 up = GetUp();
+    
+    glm::vec3 p2 = _position + forward * 15.0f;
+    glm::vec3 p3 = _position + up * 15.0f;
     
     glPointSize(20.0f);
     
@@ -89,10 +92,11 @@ void Creep::Draw()
     glVertex3f(p3.x, p3.y, p3.z);
     glEnd();
     
+    glm::vec3 axis = glm::axis(_rotation);
+    float angle = glm::angle(_rotation);
+    
     glPushMatrix();
-    glRotatef(_rotation.x, 1.0f, 0.0f, 0.0f);
-    glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
-    glRotatef(_rotation.z, 0.0f, 0.0f, 1.0f);
+    glRotatef(angle, axis.x, axis.y, axis.z);
     glTranslatef(_position.x, _position.y, _position.z);
     for(auto& cube : _cubes) {
         glm::vec3 pos = cube.GetPosition();
