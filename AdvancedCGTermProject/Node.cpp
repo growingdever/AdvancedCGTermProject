@@ -11,11 +11,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#define Forward3 glm::vec3(0, 0, -1)
+#define Forward4 glm::vec4(0, 0, -1, 1)
+#define Up3 glm::vec3(0, 1, 0)
+#define Up4 glm::vec4(0, 1, 0, 1)
+
 
 Node::Node()
-: _up(0, 1, 0)
-, _forward(0, 0, -1)
 {
+    
 }
 
 Node::~Node()
@@ -25,9 +29,6 @@ Node::~Node()
 
 bool Node::Init()
 {
-    SetPosition(glm::vec3());
-    SetRotation(glm::vec3());
-
     return true;
 }
 
@@ -51,38 +52,47 @@ void Node::SetPosition(const glm::vec3& vec)
     _position = vec;
 }
 
-glm::vec3 Node::GetRotation()
+glm::vec3 Node::GetForward()
+{
+    glm::vec3 forward = glm::rotate(_rotation, Forward3);
+    forward = glm::normalize(forward);
+    return forward;
+}
+
+glm::vec3 Node::GetUp()
+{
+    glm::vec3 up = glm::rotate(_rotation, Up3);
+    up = glm::normalize(up);
+    return up;
+}
+
+glm::quat Node::GetRotation()
 {
     return _rotation;
 }
 
-void Node::SetRotation(const glm::vec3& eulerDegree)
+void Node::SetRotation(const glm::quat& rotation)
 {
-    _rotation = eulerDegree;
-    if( _rotation.x > 360 ) {
-        _rotation.x -= 360;
-    } else if( _rotation.x < -360 ) {
-        _rotation.x += 360;
-    }
-    if( _rotation.y > 360 ) {
-        _rotation.y -= 360;
-    } else if( _rotation.x < -360 ) {
-        _rotation.y += 360;
-    }
-    if( _rotation.z > 360 ) {
-        _rotation.z -= 360;
-    } else if( _rotation.x < -360 ) {
-        _rotation.z += 360;
-    }
-    
-    _quatRoll = glm::angleAxis(eulerDegree.x, glm::vec3(1, 0, 0));
-    _quatYaw = glm::angleAxis(eulerDegree.y, glm::vec3(0, 1, 0));
-    _quatPitch = glm::angleAxis(eulerDegree.z, glm::vec3(0, 0, 1));
-    glm::quat temp = _quatRoll * _quatYaw * _quatPitch;
-    
-    _forward = glm::vec3(0, 0, -1) * temp;
-    _up = glm::vec3(0, 1, 0) * temp;
-    
-    _forward = glm::normalize(_forward);
-    _up = glm::normalize(_up);
+    _rotation = rotation;
+    _rotation = glm::normalize(_rotation);
+}
+
+void Node::Rotate(const float angle, const glm::vec3 &axis)
+{
+    _rotation = glm::rotate(_rotation, angle, axis);
+}
+
+void Node::RotateX(const float angle)
+{
+    Rotate(angle, glm::vec3(1, 0, 0));
+}
+
+void Node::RotateY(const float angle)
+{
+    Rotate(angle, glm::vec3(0, 1, 0));
+}
+
+void Node::RotateZ(const float angle)
+{
+    Rotate(angle, glm::vec3(0, 0, 1));
 }

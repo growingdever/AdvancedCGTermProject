@@ -18,13 +18,7 @@ class Node {
 protected:
     glm::vec3 _position;
     glm::vec3 _scale;
-    glm::vec3 _rotation;
-    glm::vec3 _up;
-    glm::vec3 _forward;
-    
-    glm::quat _quatRoll;
-    glm::quat _quatYaw;
-    glm::quat _quatPitch;
+    glm::quat _rotation;
     
     
 public:
@@ -35,21 +29,17 @@ public:
     virtual void Update(float dt);
     virtual void Draw();
     
-    glm::vec3 GetPosition();
+    virtual glm::vec3 GetPosition();
     virtual void SetPosition(const glm::vec3& pos);
+    virtual glm::vec3 GetForward();
+    virtual glm::vec3 GetUp();
     
-    glm::vec3 GetRotation();
-    virtual void SetRotation(const glm::vec3& rot);
-    
-    glm::quat GetRoll() {
-        return _quatRoll;
-    }
-    glm::quat GetYaw() {
-        return _quatYaw;
-    }
-    glm::quat GetPitch() {
-        return _quatPitch;
-    }
+    virtual glm::quat GetRotation();
+    virtual void SetRotation(const glm::quat& rot);
+    virtual void Rotate(const float angle, const glm::vec3& axis);
+    virtual void RotateX(const float angle);
+    virtual void RotateY(const float angle);
+    virtual void RotateZ(const float angle);
 };
 
 #endif /* defined(__AdvancedCGTermProject__Node__) */
