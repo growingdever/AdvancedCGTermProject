@@ -50,10 +50,16 @@ bool Cube::InitWithLength(float length)
 void Cube::Draw()
 {
     bool isEnabledTexture = glIsEnabled(GL_TEXTURE_2D);
+    float prevColor[4];
+    glGetFloatv(GL_CURRENT_COLOR, prevColor);
+    GLint prevTexture;
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &prevTexture);
+
     
     if( _texture != 0 ) {
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, _texture);
+        glColor3f(1.0f, 1.0f, 1.0f);
         DrawTextureBinded();
     }
     else {
@@ -61,17 +67,14 @@ void Cube::Draw()
         DrawTextureUnbinded();
     }
     
-    
     if( isEnabledTexture ) {
         glEnable(GL_TEXTURE_2D);
     }
     else {
         glDisable(GL_TEXTURE_2D);
     }
-    
-    if( _texture != 0 ) {
-        glBindTexture(GL_TEXTURE_2D, 0);
-    }
+    glBindTexture(GL_TEXTURE_2D, prevTexture);
+    glColor3fv(prevColor);
 }
 
 void Cube::DrawTextureBinded()
