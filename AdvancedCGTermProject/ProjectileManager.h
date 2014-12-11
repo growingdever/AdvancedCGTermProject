@@ -37,6 +37,7 @@ public:
     void Update(float dt);
     void Draw();
     void CreateBullet(glm::vec3 pos, glm::vec3 dir);
+    void RemoveBullet(Bullet* bullet);
     const std::vector< std::pair<Bullet*, float> >& GetBullets();
 };
 

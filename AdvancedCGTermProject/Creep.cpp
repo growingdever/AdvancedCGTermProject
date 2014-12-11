@@ -15,6 +15,7 @@ using namespace std;
 
 
 Creep::Creep()
+: _boundingBox(glm::vec3(), glm::vec3())
 {
     
 }
@@ -28,6 +29,14 @@ bool Creep::InitWithFile(std::string path)
 {
     if( ! Node::Init() ) {
         return false;
+    }
+
+    if( path == "Data/CreepFirst.txt" ) {
+        _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
+    } else if( path == "Data/CreepSecond.txt" ) {
+        _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
+    } else if( path == "Data/CreepThrid.txt" ) {
+        _boundingBox = Box3d(glm::vec3(-5, 0, -5), glm::vec3(5, 10, 5));
     }
     
     int n;
@@ -47,12 +56,16 @@ bool Creep::InitWithFile(std::string path)
         _cubes.push_back(cube);
     }
     
+    _boundingBox.MoveTo(_position);
+    
     return true;
 }
 
 void Creep::Update(float dt)
 {
     Node::Update(dt);
+    
+    _boundingBox.MoveTo(_position);
     
     if( _isDead ) {
         for( unsigned int i = 0; i < _cubes.size(); i ++ ) {
@@ -122,4 +135,9 @@ void Creep::Destroy()
         dir *= 1.0f;
         _particleDirs.push_back(dir);
     }
+}
+
+Box3d Creep::BoundingBox() 
+{
+    return _boundingBox;
 }

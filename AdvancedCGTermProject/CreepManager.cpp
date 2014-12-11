@@ -9,9 +9,11 @@
 #include "CreepManager.h"
 #include "Macro.h"
 #include "GravityManager.h"
+#include "ProjectileManager.h"
+#include "Bullet.h"
+#include "Box3d.h"
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 
 CreepManager* CreepManager::_instance;
@@ -29,7 +31,7 @@ CreepManager::~CreepManager()
 
 void CreepManager::Update(float dt)
 {
-    if( _nodes.size() < 3 ) {
+    if( _nodes.size() < 1 ) {
         CreateCreep();
     }
     
@@ -37,12 +39,26 @@ void CreepManager::Update(float dt)
         return;
     }
     
+    auto bullets = ProjectileManager::GetInstance()->GetBullets();
+    
     for(auto& node : _nodes) {
         glm::vec3 pos = node->GetPosition();
-        glm::vec3 dir = glm::normalize(player->GetPosition() - pos) * 10.0f * dt;
-        dir.y = 0.0f;
-        node->SetPosition(pos + dir);
+        Box3d boundingBoxNode = node->BoundingBox();
+        for(auto it = bullets.begin(); it != bullets.end(); ++it) {
+            Bullet *bullet = it->first;
+            Box3d boundingBoxBullet = bullet->BoundingBox();
+            if( boundingBoxBullet.Intersection(boundingBoxNode) ) {
+                ProjectileManager::GetInstance()->RemoveBullet(bullet);
+                node->Destroy();
+                return;
+            }
+        }
         
+        glm::vec3 dir = player->GetPosition() - pos;
+        dir.y = 0.0f;
+        dir = glm::normalize(player->GetPosition() - pos);
+        node->SetPosition(pos + dir * 5.0f * dt);
+
         node->Update(dt);
     }
 }
@@ -68,12 +84,10 @@ void CreepManager::CreateCreep()
     }
 
     creep->InitWithFile(path);
-    creep->SetPosition(glm::vec3( RandomRangeDouble(-500, 500), 0, RandomRangeDouble(-500, 500) ));
+//    creep->SetPosition(glm::vec3( RandomRangeDouble(-500, 500), 0, RandomRangeDouble(-500, 500) ));
     _nodes.push_back(creep);
     
     GravityManager::GetInstance()->AddNode(creep);
-    
-    std::cout << _nodes.size() << std::endl;
 }
 
 void CreepManager::RemoveCreep(Creep *node)

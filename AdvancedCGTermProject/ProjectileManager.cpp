@@ -8,6 +8,7 @@
 
 #include "ProjectileManager.h"
 #include "Bullet.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -56,6 +57,15 @@ void ProjectileManager::CreateBullet(glm::vec3 pos, glm::vec3 dir)
     Bullet *bullet = new Bullet(pos, dirVec);
     auto p = pair<Bullet*, float>(bullet, 10.0f);
     _bullets.push_back(p);
+}
+
+void ProjectileManager::RemoveBullet(Bullet *bullet)
+{
+    for (auto it = _bullets.begin(); it != _bullets.end(); ++ it) {
+        delete it->first;
+        _bullets.erase(it);
+        break;
+    }
 }
 
 const std::vector< std::pair<Bullet*, float> >& ProjectileManager::GetBullets()

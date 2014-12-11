@@ -11,6 +11,7 @@
 
 #include "Node.h"
 #include "Cube.h"
+#include "Box3d.h"
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
@@ -20,6 +21,10 @@ class Creep : public Node {
 private:
     std::vector< Cube > _cubes;
     std::vector< glm::vec3 > _particleDirs;
+    Box3d _boundingBox;
+    float _boundingBoxSizeWidth;
+    float _boundingBoxSizeHeight;
+    float _boundingBoxSizeLength;
     
     bool _isDead = false;
     float _removeTimer = 3.0f;
@@ -32,6 +37,8 @@ public:
     virtual void Draw();
     
     virtual void Destroy();
+
+    Box3d BoundingBox();
 };
 
 #endif /* defined(__AdvancedCGTermProject__Creep__) */

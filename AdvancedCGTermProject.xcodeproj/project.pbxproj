@@ -27,6 +27,7 @@
 		E668282C1A37F6FA00D7DFD7 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E668282A1A37F6FA00D7DFD7 /* ResourceManager.cpp */; };
 		E6A398AF1A367326004FF749 /* libglfw3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A398AE1A367326004FF749 /* libglfw3.3.dylib */; };
 		E6A398B21A3678DA004FF749 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6A398B01A3678DA004FF749 /* Camera.cpp */; };
+		E6B039D21A39D72900C31095 /* Box3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6B039D01A39D72900C31095 /* Box3d.cpp */; };
 		E6CF0EC61A36A16F0005FF7A /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0EC41A36A16F0005FF7A /* Cube.cpp */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		E6A398AE1A367326004FF749 /* libglfw3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.dylib; path = ../../../../../usr/local/Cellar/glfw3/3.0.4/lib/libglfw3.3.dylib; sourceTree = "<group>"; };
 		E6A398B01A3678DA004FF749 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		E6A398B11A3678DA004FF749 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		E6B039D01A39D72900C31095 /* Box3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Box3d.cpp; sourceTree = "<group>"; };
+		E6B039D11A39D72900C31095 /* Box3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box3d.h; sourceTree = "<group>"; };
 		E6CF0EC41A36A16F0005FF7A /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
 		E6CF0EC51A36A16F0005FF7A /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +156,8 @@
 				E6155C551A38A04200B9734C /* GravityManager.h */,
 				E6155C571A38B55700B9734C /* CreepManager.cpp */,
 				E6155C581A38B55700B9734C /* CreepManager.h */,
+				E6B039D01A39D72900C31095 /* Box3d.cpp */,
+				E6B039D11A39D72900C31095 /* Box3d.h */,
 			);
 			path = AdvancedCGTermProject;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				E64AD01B1A36FC650012B7F2 /* Node.cpp in Sources */,
 				E64DD25C1A371C71007A82EF /* Light.cpp in Sources */,
 				E64AD0181A36FC280012B7F2 /* Bullet.cpp in Sources */,
+				E6B039D21A39D72900C31095 /* Box3d.cpp in Sources */,
 				E6155C531A3780AF00B9734C /* Macro.cpp in Sources */,
 				E6155C501A377A7D00B9734C /* ItemBullet.cpp in Sources */,
 				E6155C4D1A3779A800B9734C /* Item.cpp in Sources */,

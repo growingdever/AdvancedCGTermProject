@@ -11,11 +11,15 @@
 
 #include "Node.h"
 #include "Cube.h"
+#include "Box3d.h"
+
 
 class Bullet : public Node {
 private:
+    const float SIZE = 1.5f;
     Cube _cube;
     glm::vec3 _dir;
+    Box3d _boundingBox;
     
     
 public:
@@ -24,6 +28,8 @@ public:
     
     virtual void Update(float dt);
     virtual void Draw();
+    
+    Box3d BoundingBox();
     
 };
 
