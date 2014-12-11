@@ -11,6 +11,7 @@
 #include "Macro.h"
 #include <glm/glm.hpp>
 #include <fstream>
+#include <deque>
 using namespace std;
 
 
@@ -126,6 +127,8 @@ void Creep::Destroy()
 {
     _isDead = true;
     
+    Divide();
+    
     for(auto& cube : _cubes) {
         auto pos = cube.GetPosition();
         glm::vec3 dir = glm::normalize(pos - _position);
@@ -134,6 +137,39 @@ void Creep::Destroy()
         dir.z += RandomRangeDouble(-2, 2);
         dir *= 1.0f;
         _particleDirs.push_back(dir);
+    }
+}
+
+void Creep::Divide()
+{
+    deque<Cube> undividedCubes;
+    
+    for( int i = 0; i < _cubes.size(); i ++ ) {
+        undividedCubes.push_back(_cubes[i]);
+    }
+    _cubes.clear();
+    
+    while( undividedCubes.size() > 0 ) {
+        Cube& cube = undividedCubes.front();
+        if( cube.GetLength() < 3.0f ) {
+            _cubes.push_back(cube);
+        }
+        else {
+            const int DivideFactor = 2;
+            glm::vec3 pos = cube.GetPosition();
+            glm::vec3 color = cube.GetColor();
+            int length = cube.GetLength();
+            for( int i = 0; i < DivideFactor; i ++ ) {
+                for( int j = 0; j < DivideFactor; j ++ ) {
+                    Cube cube(length/2);
+                    cube.SetColor(color);
+                    cube.SetPosition(pos);
+                    undividedCubes.push_back(cube);
+                }
+            }
+        }
+        
+        undividedCubes.pop_front();
     }
 }
 

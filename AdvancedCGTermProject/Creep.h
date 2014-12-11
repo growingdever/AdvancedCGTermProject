@@ -37,6 +37,7 @@ public:
     virtual void Draw();
     
     virtual void Destroy();
+    virtual void Divide();
 
     Box3d BoundingBox();
 };

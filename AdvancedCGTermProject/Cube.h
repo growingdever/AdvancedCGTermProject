@@ -28,14 +28,20 @@ public:
     ~Cube();
     
     bool InitWithLength(float length);
+    float GetLength() {
+        return _length;
+    }
+    
     virtual void Draw();
     void DrawTextureBinded();
     void DrawTextureUnbinded();
     void VertexByVector3(const glm::vec3& pos);
     
     void SetTexture(GLuint texture);
+    glm::vec3 GetColor() {
+        return _color;
+    }
     void SetColor(const glm::vec3& color);
-    
 };
 
 
