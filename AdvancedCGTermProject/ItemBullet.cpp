@@ -7,6 +7,7 @@
 //
 
 #include "ItemBullet.h"
+#include "ResourceManager.h"
 
 
 ItemBullet::ItemBullet()
@@ -24,6 +25,8 @@ bool ItemBullet::Init()
     if( ! Item::Init() ) {
         return false;
     }
+    
+    Item::SetTexture( ResourceManager::GetInstance()->GetTexture("ItemBullet") );
     
     return true;
 }

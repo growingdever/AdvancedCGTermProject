@@ -24,6 +24,7 @@ public:
     
     virtual void Draw();
     
+    virtual void SetTexture(GLuint texture);
     virtual void Use(Player *player);
 };
 

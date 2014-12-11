@@ -46,10 +46,12 @@ void ItemManager::Draw()
 void ItemManager::GenerateItem()
 {
     glm::vec3 newPos;
-    newPos.x = RandomRangeDouble(-10, 10);
-    newPos.z = RandomRangeDouble(-10, 10);
+    newPos.x = RandomRangeDouble(-300, 300);
+    newPos.y = 4.0f;
+    newPos.z = RandomRangeDouble(-300, 300);
     
     Item *item = new ItemBullet;
+    item->Init();
     item->SetPosition(newPos);
     _items.push_back(item);
 }

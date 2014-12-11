@@ -11,7 +11,7 @@
 
 
 Item::Item()
-: _cube(5.0f)
+: _cube(8.0f)
 {
     
 }
@@ -29,6 +29,11 @@ void Item::Draw()
         _cube.Draw();
     }
     glPopMatrix();
+}
+
+void Item::SetTexture(GLuint texture)
+{
+    _cube.SetTexture(texture);
 }
 
 void Item::Use(Player *player)

@@ -62,7 +62,7 @@ GLFWwindow* Init() {
     srand((unsigned)(time)(NULL));
     
     
-    ResourceManager::GetInstance()->LoadTexture("item1", "Textures/item1.tga");
+    ResourceManager::GetInstance()->LoadTexture("ItemBullet", "Textures/item1.tga");
     
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glShadeModel(GL_SMOOTH);
