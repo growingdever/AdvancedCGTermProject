@@ -30,7 +30,7 @@ int RandomRangeInt(int start, int end)
     return n + start;
 }
 
-void PrintVector(glm::vec3 vector)
+void PrintVector3(glm::vec3 vector)
 {
     std::cout << std::setw(8) << std::setprecision(3) << vector.x << std::setw(8) << std::setprecision(3) << vector.y << std::setw(8) << std::setprecision(3) << vector.z << std::endl;
 }
