@@ -99,25 +99,25 @@ void Creep::Update(float dt)
 
 void Creep::Draw()
 {
-    glm::vec3 forward = GetForward();
-    glm::vec3 up = GetUp();
-    
-    glm::vec3 p2 = _position + forward * 15.0f;
-    glm::vec3 p3 = _position + up * 15.0f;
-    
-    glPointSize(20.0f);
-    
-    glBegin(GL_LINES);
-    glVertex3f(_position.x, _position.y, _position.z);
-    glVertex3f(p2.x, p2.y, p2.z);
-    glVertex3f(_position.x, _position.y, _position.z);
-    glVertex3f(p3.x, p3.y, p3.z);
-    glEnd();
-    
-    glBegin(GL_POINTS);
-    glVertex3f(p2.x, p2.y, p2.z);
-    glVertex3f(p3.x, p3.y, p3.z);
-    glEnd();
+//    glm::vec3 forward = GetForward();
+//    glm::vec3 up = GetUp();
+//    
+//    glm::vec3 p2 = _position + forward * 15.0f;
+//    glm::vec3 p3 = _position + up * 15.0f;
+//    
+//    glPointSize(20.0f);
+//    
+//    glBegin(GL_LINES);
+//    glVertex3f(_position.x, _position.y, _position.z);
+//    glVertex3f(p2.x, p2.y, p2.z);
+//    glVertex3f(_position.x, _position.y, _position.z);
+//    glVertex3f(p3.x, p3.y, p3.z);
+//    glEnd();
+//    
+//    glBegin(GL_POINTS);
+//    glVertex3f(p2.x, p2.y, p2.z);
+//    glVertex3f(p3.x, p3.y, p3.z);
+//    glEnd();
     
     glm::vec3 axis = glm::axis(_rotation);
     float angle = glm::angle(_rotation);
