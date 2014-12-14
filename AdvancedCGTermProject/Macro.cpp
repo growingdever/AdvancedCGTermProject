@@ -7,6 +7,8 @@
 //
 
 #include "Macro.h"
+#include <iostream>
+#include <iomanip>
 
 
 double Random0to1()
@@ -26,4 +28,9 @@ int RandomRangeInt(int start, int end)
     int n = rand() % length;
     
     return n + start;
+}
+
+void PrintVector(glm::vec3 vector)
+{
+    std::cout << std::setw(8) << std::setprecision(3) << vector.x << std::setw(8) << std::setprecision(3) << vector.y << std::setw(8) << std::setprecision(3) << vector.z << std::endl;
 }

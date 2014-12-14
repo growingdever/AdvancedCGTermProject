@@ -10,10 +10,13 @@
 #define AdvancedCGTermProject_Macro_h
 
 #include <stdlib.h>
+#include <glm/glm.hpp>
+
 
 double Random0to1();
 double RandomRangeDouble(double start, double end);
 int RandomRangeInt(int start, int end);
+void PrintVector3(glm::vec3 vector);
 
 
 #endif
