@@ -41,11 +41,12 @@ void Player::Init(GLFWwindow *window)
         // error!
     }
     _light.SetPosition(glm::vec3(0, 0, 50));
-    _light.SetAmbient(0.1f, 0.1f, 0.1f);
-    _light.SetDiffuse(0.7f, 0.7f, 0.7f);
+    _light.SetAmbient(0.01f, 0.01f, 0.01f);
+    _light.SetDiffuse(0.0f, 0.0f, 0.0f);
+    _light.SetSpecular(0.0f, 0.0f, 0.0f);
     _light.SetAttenuation(GL_CONSTANT_ATTENUATION, 0.0f);
-    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 0.001f);
-    _light.SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.0001f);
+    _light.SetAttenuation(GL_LINEAR_ATTENUATION, 0.0001f);
+    _light.SetAttenuation(GL_QUADRATIC_ATTENUATION, 0.000001f);
 }
 
 void Player::Update(float dt)

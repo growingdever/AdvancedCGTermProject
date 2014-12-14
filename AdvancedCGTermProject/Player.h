@@ -23,7 +23,7 @@ private:
     
     Light _light;
     
-    int _remainBullet = 10;
+    int _remainBullet = 100;
     
     
 public:
