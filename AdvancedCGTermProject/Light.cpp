@@ -36,7 +36,13 @@ bool Light::Init()
 
 void Light::Draw()
 {
+    glLightfv(LightID, GL_AMBIENT, LightAmbient);
+    glLightfv(LightID, GL_DIFFUSE, LightDiffuse);
+    glLightfv(LightID, GL_SPECULAR, LightSpecular);
     glLightfv(LightID, GL_POSITION, LightPosition);
+    glLightf(LightID, GL_CONSTANT_ATTENUATION, LightAttenuation[ATTENUATION_TYPE_CONSTANT]);
+    glLightf(LightID, GL_LINEAR_ATTENUATION, LightAttenuation[ATTENUATION_TYPE_LINEAR]);
+    glLightf(LightID, GL_QUADRATIC_ATTENUATION, LightAttenuation[ATTENUATION_TYPE_QUADRATIC]);
 }
 
 void Light::SetPosition(const glm::vec3& vec)
@@ -75,6 +81,15 @@ void Light::SetDiffuse(float r, float g, float b, float a)
 	LightDiffuse[2] = b;
 	LightDiffuse[3] = a;
 	glLightfv(LightID, GL_DIFFUSE, LightDiffuse);
+}
+
+void Light::SetSpecular(float r, float g, float b, float a)
+{
+    LightSpecular[0] = r;
+    LightSpecular[1] = g;
+    LightSpecular[2] = b;
+    LightSpecular[3] = a;
+    glLightfv(LightID, GL_SPECULAR, LightSpecular);
 }
 
 void Light::SetAttenuation(GLuint attenuationType, float d)
