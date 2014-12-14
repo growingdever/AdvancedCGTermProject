@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "ProjectileManager.h"
 #include "ItemManager.h"
+#include "Macro.h"
 
 #include <iostream>
 using namespace std;
@@ -79,12 +80,26 @@ void Player::Update(float dt)
     }
     
     SetPosition(_camera.camera_position);
+    SetRotation(glm::quat(_camera.camera_look_at));
     _light.SetPosition(_camera.camera_position);
 }
 
 void Player::Draw()
 {
     _light.Draw();
+    
+    glm::vec3 forward = GetForward();
+    glm::vec3 blindPos = GetPosition() + forward * -100.0f;
+    
+    PrintVector3(forward);
+    
+    glBegin(GL_QUADS);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(blindPos.x - 100, blindPos.y - 100, blindPos.z);
+    glVertex3f(blindPos.x + 100, blindPos.y - 100, blindPos.z);
+    glVertex3f(blindPos.x + 100, blindPos.y + 100, blindPos.z);
+    glVertex3f(blindPos.x - 100, blindPos.y + 100, blindPos.z);
+    glEnd();
 }
 
 void Player::KeyEvent(int key, int scancode, int action, int mods)
