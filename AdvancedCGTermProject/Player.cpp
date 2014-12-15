@@ -34,7 +34,7 @@ void Player::Init(GLFWwindow *window)
     _camera.SetMode(FREE);
     _camera.SetPosition(glm::vec3(0, 0, -10));
     _camera.SetLookAt(glm::vec3(0, 0, 0));
-    _camera.SetClipping(.01, 500);
+    _camera.SetClipping(.01, 200);
     _camera.SetFOV(45);
     _camera.SetMovingScale(0.1f);
     
@@ -87,19 +87,6 @@ void Player::Update(float dt)
 void Player::Draw()
 {
     _light.Draw();
-    
-    glm::vec3 forward = GetForward();
-    glm::vec3 blindPos = GetPosition() + forward * -100.0f;
-    
-    PrintVector3(forward);
-    
-    glBegin(GL_QUADS);
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glVertex3f(blindPos.x - 100, blindPos.y - 100, blindPos.z);
-    glVertex3f(blindPos.x + 100, blindPos.y - 100, blindPos.z);
-    glVertex3f(blindPos.x + 100, blindPos.y + 100, blindPos.z);
-    glVertex3f(blindPos.x - 100, blindPos.y + 100, blindPos.z);
-    glEnd();
 }
 
 void Player::KeyEvent(int key, int scancode, int action, int mods)
