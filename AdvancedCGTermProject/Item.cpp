@@ -13,7 +13,7 @@
 Item::Item()
 : _cube(8.0f)
 {
-    
+    _cube.SetPosition(glm::vec3(0, _cube.GetLength()/2, 0));
 }
 
 Item::~Item()
@@ -25,7 +25,7 @@ void Item::Draw()
 {
     glPushMatrix();
     {
-        glTranslated(_position.x, _position.y, _position.z);
+        glTranslated(_position.x, _position.y + _cube.GetPosition().y, _position.z);
         _cube.Draw();
     }
     glPopMatrix();

@@ -8,6 +8,7 @@
 
 #include "ItemManager.h"
 #include "Macro.h"
+#include "GravityManager.h"
 
 using namespace std;
 
@@ -47,13 +48,15 @@ void ItemManager::GenerateItem()
 {
     glm::vec3 newPos;
     newPos.x = RandomRangeDouble(-300, 300);
-    newPos.y = 4.0f;
+    newPos.y = 200.0f;
     newPos.z = RandomRangeDouble(-300, 300);
     
     Item *item = new ItemBullet;
     item->Init();
     item->SetPosition(newPos);
     _items.push_back(item);
+    
+    GravityManager::GetInstance()->AddNode(item);
 }
 
 void ItemManager::RemoveItem(Item *item)
@@ -61,6 +64,7 @@ void ItemManager::RemoveItem(Item *item)
     auto it = _items.begin();
     for( ; it != _items.end(); ++it ) {
         if( (*it) == item ) {
+            GravityManager::GetInstance()->RemoveNode((*it));
             delete (*it);
             _items.erase(it);
             break;
